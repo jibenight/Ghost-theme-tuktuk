@@ -1,0 +1,16 @@
+{{#if isSecondary}}
+
+  {{! code du menu secondaire }}
+
+{{else}}
+  <ul class='flex items-center justify-center'>
+    <!-- Loop through the navigation items -->
+    {{#foreach navigation}}
+      <li class='mr-9'><a
+          href='{{url absolute='true'}}'
+          class='inline-block text-sm font-bold text-gray-900 hover:text-gray-700'
+        >{{label}}</a></li>
+    {{/foreach}}
+    <!-- End the loop -->
+  </ul>
+{{/if}}
