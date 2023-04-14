@@ -51,19 +51,11 @@ into the {body} of the default.hbs template --}}
                 </div>
                 
                 {{!-- featured post --}}
-                
-                <div class="mb-6 py-20 px-8 rounded-3xl" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHdoaXRlJTIwYmVhY2glMjB8ZW58MHx8fHwxNjc5Mzk3NzM1&ixlib=rb-4.0.3&q=80&w=2000'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                    <div class="max-w-7xl mx-auto">
-                        <div class="p-10 max-w-md bg-white rounded-3xl">
-                            <p class="mb-3 text-xs text-gray-500 font-bold">Design Process</p>
-                            <h2 class="font-heading mb-6 text-4xl md:text-5xl text-gray-900 font-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-                            <p class="mb-28 text-gray-500 font-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum tincidunt augue, at viverra erat faucibus vitae.</p><a class="flex items-center text-blue-500 hover:text-blue-600" href="#"><span class="mr-0.5 font-black">Read Article</span>
-                            <svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6.6805 3.5465L8.82049 5.6865L10.1338 6.99317C10.6872 7.5465 10.6872 8.4465 10.1338 8.99983L6.6805 12.4532C6.22716 12.9065 5.45383 12.5798 5.45383 11.9465V8.2065V4.05317C5.45383 3.41317 6.22716 3.09317 6.6805 3.5465Z" fill="currentColor"></path>
-                            </svg></a>
-                        </div>
-                    </div>
-                </div>
+                {{#get "posts" filter="featured:true" include="tags" limit="1" order="published_at desc" as |posts|}}
+                    {{#foreach posts}}
+                        {{> "post-featured"}}
+                    {{/foreach}}
+                {{/get}}
 
                 {{!-- posts --}}
                 <div class="flex flex-wrap -m-4 mb-6">
