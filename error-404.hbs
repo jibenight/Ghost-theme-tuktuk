@@ -12,25 +12,34 @@ Keep this template as lightweight as you can!
 
 --}}
 
-<section class="outer error-content">
-    <div class="inner">
-        <section class="error-message">
-            <h1 class="error-code">{{statusCode}}</h1>
-            <p class="error-description">{{message}}</p>
-            <a class="error-link" href="{{@site.url}}">Go to the front page →</a>
-        </section>
+
+  <div class="container mx-auto">
+    <div class="py-20 px-8 bg-gray-100 rounded-3xl">
+      <div class="pb-32 md:pb-64 max-w-7xl mx-auto">
+        <div class="md:max-w-md mx-auto text-center"><img class="mb-32 md:mb-64 mx-auto" src="zanrly-assets/logos/zanrly-logo-small.svg" alt=""/>
+          <h3 class="font-heading text-2xl text-blue-500 font-black tracking-tight">404</h3>
+          <h2 class="font-heading mb-6 text-4xl md:text-5xl lg:text-6xl text-gray-900 font-black tracking-tight">Page not found</h2>
+          <p class="mb-6 text-gray-500 font-bold">We&rsquo;re sorry, the page you requested could not be found. Please go back to the homepage</p>
+          <div class="flex flex-wrap justify-center -m-2">
+            <div class="w-full md:w-auto p-2"><a class="block w-full px-4 py-2.5 text-sm text-center text-white font-bold bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-200 rounded-full" href="/">Go back to Homepage</a></div>
+            <div class="w-full md:w-auto p-2"><a class="block w-full px-4 py-2.5 text-sm text-center text-gray-900 font-bold bg-gray-50 hover:bg-gray-200 focus:ring-4 focus:ring-gray-200 rounded-full" href="#">Try Again</a></div>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </div>
 
 {{!-- Given that people landing on this page didn't find what they
 were looking for, let's give them some alternative stuff to read. --}}
-<aside class="read-more-wrap outer">
-    <div class="read-more inner">
+<aside class="container mx-auto mt-5">
+    <div class="py-16 px-8 bg-gray-100 rounded-3xl">
         {{#get "posts" include="authors" limit="3" as |more_posts|}}
             {{#if more_posts}}
-                {{#foreach more_posts}}
-                    {{> "post-card"}}
-                {{/foreach}}
+                <div class="flex flex-wrap -m-4">
+                    {{#foreach more_posts}}
+                        {{> "post-card"}}
+                    {{/foreach}}
+                </div>
             {{/if}}
         {{/get}}
     </div>
