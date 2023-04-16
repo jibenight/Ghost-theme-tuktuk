@@ -6,24 +6,23 @@ into the {body} of the default.hbs template --}}
 {{!-- hero section --}}
 <div class="container mx-auto">
     <div class="mb-8 p-8 rounded-3xl bg-gray-100">
-      <div class="flex flex-wrap sm:flex-row-reverse lg:items-center -m-8">
-        <div class="w-full md:w-1/2 p-8">
-          <div class="md:max-w-lg mx-auto text-center">
-            {{#if @site.logo}}
-                <img class="w-32 mx-auto mb-6" src="{{@site.logo}}" alt="{{@site.title}}">
-            {{/if}}
-            {{#if @site.title}}
-                <h1 class="font-heading mb-4 text-5xl text-gray-900 font-black tracking-tight">{{@site.title}}</h1>
-            {{/if}}
-            {{#if @site.description}}
-                <p class="mb-6 text-xl font-bold">{{@site.description}}</p>
-            {{/if}}
-          </div>
-        </div>
-        <div class="w-full md:w-1/2 p-8">
-          <div class="max-w-max mx-auto md:mr-0 overflow-hidden rounded-3xl">
-            {{#if @custom.show_publication_cover}}
-                {{#if @site.cover_image}}
+        <div class="flex flex-wrap {{#if @site.cover_image}}sm:flex-row-reverse lg:items-center{{/if}} -m-8">
+            <div class="w-full {{#if @site.cover_image}}md:w-1/2{{/if}} p-8">
+                <div class="md:max-w-lg mx-auto text-center">
+                    {{#if @site.logo}}
+                        <img class="w-32 mx-auto mb-6" src="{{@site.logo}}" alt="{{@site.title}}">
+                    {{/if}}
+                    {{#if @site.title}}
+                        <h1 class="font-heading mb-4 text-5xl text-gray-900 font-black tracking-tight">{{@site.title}}</h1>
+                    {{/if}}
+                    {{#if @site.description}}
+                        <p class="mb-6 text-xl font-bold">{{@site.description}}</p>
+                    {{/if}}
+                </div>
+            </div>
+            {{#if @site.cover_image}}
+            <div class="w-full md:w-1/2 p-8">
+                <div class="max-w-max mx-auto md:mr-0 overflow-hidden rounded-3xl">
                     <img class="mx-auto"
                         srcset="{{img_url @site.cover_image size="s"}} 300w,
                                 {{img_url @site.cover_image size="m"}} 600w,
@@ -33,10 +32,10 @@ into the {body} of the default.hbs template --}}
                         src="{{img_url @site.cover_image size="xl"}}"
                         alt="{{@site.title}}"
                     />
-                {{/if}}
+                </div>
+            </div>
             {{/if}}
         </div>
-      </div>
     </div>
 </div>
     
