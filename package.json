@@ -72,11 +72,10 @@
       "navigation_layout": {
         "type": "select",
         "options": [
-          "Logo on cover",
-          "Logo in the middle",
-          "Stacked"
+          "Logo in the left",
+          "Logo in the middle"
         ],
-        "default": "Logo on cover"
+        "default": "Logo in the left"
       },
       "title_font": {
         "type": "select",
@@ -103,7 +102,7 @@
         "type": "select",
         "options": [
           "Center aligned",
-          "Left aligned",
+          "Without logo",
           "Hidden"
         ],
         "default": "Center aligned",

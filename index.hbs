@@ -4,19 +4,19 @@ into the {body} of the default.hbs template --}}
 
 
 {{!-- hero section --}}
-<div class="container mx-auto">
+<div class="container mx-auto {{#match @custom.header_style "Hidden"}}hidden{{/match}}">
     <div class="mb-8 p-8 rounded-3xl bg-gray-100">
         <div class="flex flex-wrap {{#if @site.cover_image}}sm:flex-row-reverse lg:items-center{{/if}} -m-8">
             <div class="w-full {{#if @site.cover_image}}md:w-1/2{{/if}} p-8">
                 <div class="md:max-w-lg mx-auto text-center">
                     {{#if @site.logo}}
-                        <img class="w-32 mx-auto mb-6" src="{{@site.logo}}" alt="{{@site.title}}">
+                        <img class="w-32 mx-auto mb-4 {{#match @custom.header_style "Without logo"}}hidden{{/match}} " src="{{@site.logo}}" alt="{{@site.title}}">
                     {{/if}}
                     {{#if @site.title}}
-                        <h1 class="font-heading mb-4 text-5xl text-gray-900 font-black tracking-tight">{{@site.title}}</h1>
+                        <h1 class="font-heading mb-6 text-4xl md:text-5xl lg:text-6xl text-gray-900 font-black tracking-tight">{{@site.title}}</h1>
                     {{/if}}
                     {{#if @site.description}}
-                        <p class="mb-6 text-xl font-bold">{{@site.description}}</p>
+                        <p class="md:max-w-md mx-auto text-gray-500 font-bold">{{@site.description}}</p>
                     {{/if}}
                 </div>
             </div>

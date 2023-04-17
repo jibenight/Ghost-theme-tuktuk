@@ -17,10 +17,10 @@
     it should always be the last tag before the closing head tag --}}
     {{ghost_head}}
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{asset "css/global.css"}}">
 </head>
 <body class="bg-slate-200 container mx-auto px-5">
-
-
+    {{!-- The main content area --}}
     <header class="my-5">
       <div class="container mx-auto">
         <div class="flex items-center justify-between px-6 py-3.5 bg-gray-100 border border-gray-100 rounded-full">
@@ -37,7 +37,7 @@
                 </div>
             </div>
           </div>
-          <div class="w-auto">
+          <div class="w-auto {{#match @custom.navigation_layout "Logo in the middle"}}order-first {{/match}}">
             <div class="flex flex-wrap items-center">
               <div class="w-auto hidden lg:block">
                  {{navigation}}
@@ -51,8 +51,12 @@
                   <div class="w-full flex md:w-auto p-2">
                     <button class="block w-full py-2.5 text-6xl" data-ghost-search>{{> "icons/search"}}</button>
                   </div>
-                  <div class="w-full md:w-auto p-2"><a class="block w-full px-4 py-2.5 text-xl text-center text-gray-900 font-bold bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:ring-gray-200 rounded-full" href="#/portal/signin" data-portal="signin">{{t "Sign in"}}</a></div>
-                  <div class="w-full md:w-auto p-2"><a class="block w-full px-4 py-2.5 text-xl text-center text-white font-bold bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-200 rounded-full" href="#/portal/account" data-portal="account">{{t "Account"}}</a></div>
+                  <div class="w-full md:w-auto p-2">
+                    <a class="block w-full px-4 py-2.5 text-xl text-center text-gray-900 font-bold bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:ring-gray-200 rounded-full" href="#/portal/signin" data-portal="signin">{{t "Sign in"}}</a>
+                  </div>
+                  <div class="w-full md:w-auto p-2">
+                    <a class="block w-full px-4 py-2.5 text-xl text-center text-white font-bold rounded-full" style='background-color:{{@site.accent_color}};' href="#/portal/account" data-portal="account">{{t "Account"}}</a>
+                  </div>
                 </div>
               </div>
               <div class="w-auto lg:hidden"><a class="inline-block" href="#">
@@ -128,6 +132,5 @@
 
   {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
   {{ghost_foot}}
-
 </body>
 </html>
