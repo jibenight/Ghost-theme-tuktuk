@@ -41,9 +41,9 @@
         <div class="py-16 px-8 bg-gray-100 rounded-3xl">
             <div class="max-w-7xl mx-auto">
                 {{!-- intro --}}
-                <div class="mb-12 md:max-w-4xl mx-auto text-center"><span class="inline-block mb-4 text-sm text-blue-500 font-bold uppercase tracking-widest">Blog</span>
+                <div class="mb-12 md:max-w-4xl mx-auto text-center"><span class="inline-block mb-4 text-sm font-bold uppercase tracking-widest" style='color:{{@site.accent_color}};'>Blog</span>
                 <h2 class="font-heading mb-6 text-4xl md:text-5xl lg:text-6xl text-gray-900 font-black tracking-tight">Resources and stories center</h2>
-                <p class="md:max-w-md mx-auto text-gray-500 font-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada tellus vestibulum, commodo pulvinar.</p>
+                {{!-- <p class="md:max-w-md mx-auto text-gray-500 font-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada tellus vestibulum, commodo pulvinar.</p> --}}
                 </div>
                 
                 {{!-- featured post --}}
@@ -54,18 +54,13 @@
                 {{/get}}
 
                 {{!-- posts --}}
-                <div class="flex flex-wrap -m-4 mb-6">
+                <div class="flex flex-wrap -m-4 mb-6 post-feed">
                     {{#foreach posts}}
                         {{> "post-card"}}
                     {{/foreach}}
                 </div>
 
-                {{!-- {{pagination}} --}}
-
-                {{!-- button suite --}}
-                <div class="flex flex-wrap md:justify-center -m-2">
-                <div class="w-full md:w-auto p-2"><a class="block w-full px-12 py-3.5 text-lg text-center text-white font-bold rounded-full" href="#" style="background-color:{{@site.accent_color}};">Read more News</a></div>
-                </div>
+                {{pagination}}
             </div>
         </div>
         {{!-- newsletter --}}

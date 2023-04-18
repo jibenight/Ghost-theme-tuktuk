@@ -1,23 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{@site.locale}}"{{#match @custom.color_scheme "Dark"}} class="dark-mode"{{else match @custom.color_scheme "Auto"}} class="auto-color"{{/match}}>
 <head>
-
-    {{!-- Basic meta - advanced meta is output with {ghost_head} below --}}
     <title>{{meta_title}}</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    {{!-- Theme assets - use the {asset} helper to reference styles & scripts,
-    this will take care of caching and cache-busting automatically --}}
-    {{!-- <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" /> --}}
-
-    {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
-    it should always be the last tag before the closing head tag --}}
-    {{ghost_head}}
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{{asset "css/global.css"}}">
+    {{ghost_head}}
 </head>
 <body class="bg-slate-200 container mx-auto px-5">
     {{!-- The main content area --}}
@@ -96,7 +87,6 @@
     </header>
 
     <div class="site-content">
-        {{!-- All other templates get inserted here, index.hbs, post.hbs, etc --}}
         {{{body}}}
     </div>
 
@@ -118,7 +108,8 @@
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous">
   </script>
-  <script src="{{asset "built/casper.js"}}"></script>
+  {{!-- <script src="{{asset "built/casper.js"}}"></script> --}}
+  <script src="{{asset "js/infinite-scroll.js"}}"></script>
   <script>
   $(document).ready(function () {
       // Mobile Menu Trigger
