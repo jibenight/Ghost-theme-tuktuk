@@ -92,18 +92,26 @@
 
     {{!-- The global footer at the very bottom of the screen --}}
 
-    <footer class="py-10 bg-gray-50 overflow-hidden">
-        <div class="container mx-auto px-4">
-            <div class="py-16 px-8 mb-8 bg-white rounded-3xl">
-                <div class="max-w-7xl mx-auto">
-                    <div class="flex flex-wrap items-center justify-between -m-4">
-                        <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> </section>
-                        <nav class="site-footer-nav w-auto p-4">
+   
+        <footer class="container mx-auto ">
+            <div class="py-16 px-8 mb-8 bg-gray-100 rounded-3xl">
+                <div class="mx-auto ">
+                    <div class="flex flex-wrap items-center justify-between ">
+                        <section class="copyright">
+                          <a href="{{@site.url}}">
+                            {{#if @site.logo}}
+                                <img class=" w-16" src="{{@site.logo}}" alt="{{@site.title}}">
+                            {{else}}
+                                {{@site.title}}
+                            {{/if}}
+                         </a> 
+                        </section>
+                        <nav class="flex w-auto p-4">
                             {{navigation type="secondary"}}
                         </nav>
-                        <div class="w-auto p-4">
+                        <div class=" w-auto p-4">
                             <div class="flex flex-wrap -m-4">
-                                <div class="w-auto p-4"><a class="inline-block" href="https://www.getyourguide.fr/"
+                                <div id="ad-footer" class="w-auto p-4"><a class="inline-block" href="https://www.getyourguide.fr/"
                                         target="_blank"><img src="" alt="">GET YOUR GUIDE</a></div>
                             </div>
                         </div>
@@ -114,8 +122,8 @@
                 <a class="text-blue-500 hover:text-blue-600" href="#">Mentions legals</a> |
                 <a class="text-blue-500 hover:text-blue-600" href="#">Conditions d'utilisations</a>
             </p>
-        </div>
-    </footer>
+        </footer>
+    
 
 
   {{!-- Scripts - handle member signups, responsive videos, infinite scroll, floating headers, and galleries --}}

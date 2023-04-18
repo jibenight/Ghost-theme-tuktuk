@@ -1,4 +1,10 @@
 {{#if isSecondary}}
+ {{#foreach navigation}}
+      <li class='mr-9 list-none '><a
+          href='{{url absolute='true'}}'
+          class='inline-block text-base text-gray-900 hover:text-gray-700'
+        >{{slug}}</a></li>
+    {{/foreach}}
 
   {{! code du menu secondaire }}
 
