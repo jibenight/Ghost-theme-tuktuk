@@ -17,7 +17,7 @@
                     {{#primary_tag}}
                         <span class="text-lg font-bold" style="color:{{@site.accent_color}};">{{name}}</span>
                     {{/primary_tag}}
-                    <h3 class="font-heading text-2xl text-gray-900 hover:text-gray-700 group-hover:underline font-black">
+                    <h3 class="font-heading text-2xl text-slate-800 hover:text-slate-600 group-hover:underline font-black">
                         {{#unless access}}
                             {{^has visibility="public"}}
                                 {{#unless feature_image}}
@@ -29,13 +29,16 @@
                     </h3>
 
                     {{#if excerpt}}
-                        <p>{{excerpt characters="200"}}...<a href='{{url}}'>
-                            <span style="color:{{@site.accent_color}};" class="hover:opacity-75">Read Article</span>
-                        </a></p>
+                        <p class="text-slate-600">
+                            {{excerpt characters="200"}}...
+                            <a href='{{url}}'>
+                                <span style="color:{{@site.accent_color}};" class="hover:opacity-75">Read Article</span>
+                            </a>
+                        </p>
 
                     {{/if}}
                     <br>
-                    <p class="text-sm text-gray-500 font-bold"> <time datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
+                    <p class="text-sm text-slate-500 italic"> <time datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
                             &bull; 
                             {{#if reading_time}}
                             <span class="">{{reading_time}}</span>
