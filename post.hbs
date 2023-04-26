@@ -19,11 +19,11 @@ into the {body} tag of the default.hbs template --}}
             loading="lazy"
         />
         <div class="p-8">
-            <section class="m-auto w-1/2">
+            <section class="m-auto    lg:w-1/2">
             {{#primary_tag}}
                 <span class="text-lg font-bold" style="color:{{@site.accent_color}};">{{name}}</span>
             {{/primary_tag}}
-            <h1 class="font-heading py-6 lg:text-6xl text-gray-900 hover:text-gray-700 font-black">
+            <h1 class="font-heading py-6 sm:text-4xl lg:text-6xl text-gray-900 hover:text-gray-700 font-black">
                 {{#unless access}}
                     {{^has visibility="public"}}
                         {{#unless feature_image}}
@@ -34,8 +34,11 @@ into the {body} tag of the default.hbs template --}}
             {{title}}
             </h1>
 
-            <div class="gh-content gh-canvas">
+            <div id="content-post">
+
                 {{content}}
+
+
             </div>
                 
             </section>
@@ -56,7 +59,7 @@ into the {body} tag of the default.hbs template --}}
 
     This query gets the latest 3 posts on the site, but adds a filter to
     exclude the post we're currently on from being included. --}}
-    {{#get "posts" filter="id:-{{id}}" limit="3" as |more_posts|}}
+    {{#get "posts" filter="primary_tag:{{primary_tag.slug}}" limit="3" as |more_posts|}}
 
         {{#if more_posts}}
             <div class="flex flex-wrap -m-4 mb-6 post-feed">
