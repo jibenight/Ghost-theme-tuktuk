@@ -8,7 +8,7 @@ into the {body} tag of the default.hbs template --}}
 {{!-- Everything inside the #post block pulls data from the post --}}
 <article class="w-full ">   
     <div class=" h-full bg-white rounded-3xl">
-        <img class="w-full object-cover rounded-t-3xl"
+        <img class="w-full sm:h-96 lg:h-[500px] object-cover rounded-t-3xl"
             srcset="{{img_url feature_image size="s"}} 300w,
                     {{img_url feature_image size="m"}} 600w,
                     {{img_url feature_image size="l"}} 1000w,
@@ -19,10 +19,21 @@ into the {body} tag of the default.hbs template --}}
             loading="lazy"
         />
         <div class="p-8">
-            <section class="m-auto    lg:w-1/2">
+            <section class="m-auto xl:w-2/3">
             {{#primary_tag}}
-                <span class="text-lg font-bold" style="color:{{@site.accent_color}};">{{name}}</span>
+                <span class="text-lg font-bold" style="color:{{@site.accent_color}};">{{name}} </span>
             {{/primary_tag}}
+            
+            <span class="text-sm text-slate-500 italic"> &bull; <time datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
+                            &bull; 
+                            {{#if reading_time}}
+                            <span class="">{{reading_time}}</span>
+                        {{/if}}
+                        {{#if @site.comments_enabled}}
+                            {{comment_count}}
+                        {{/if}}
+                        
+            </span>
             <h1 class="font-heading py-6 sm:text-4xl lg:text-6xl text-gray-900 hover:text-gray-700 font-black">
                 {{#unless access}}
                     {{^has visibility="public"}}
@@ -32,13 +43,16 @@ into the {body} tag of the default.hbs template --}}
                     {{/has}}
                 {{/unless}}
             {{title}}
+            
             </h1>
 
             <div id="content-post">
-
-                {{content}}
-
-
+                <article>
+                    {{content}}
+                    {{#primary_author}}
+                    <p class="mt-5 italic text-slate-500">Author: <a href="{{url}}">{{name}}</a></p>
+                    {{/primary_author}}
+                </article>
             </div>
                 
             </section>

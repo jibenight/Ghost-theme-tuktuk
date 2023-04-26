@@ -14,5 +14,25 @@ h5,
 h6,
 p,
 a {
-  font-family: 'nunito' !important;
+  font-family: 'nunito';
+}
+
+#content-post h2 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin-top: 5%;
+  margin-bottom: 1%;
+  line-height: 1.2;
+}
+
+#content-post h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-top: 5%;
+  line-height: 1.2;
+}
+
+#content-post p {
+  font-size: 1.25rem;
+  line-height: 1.5;
 }

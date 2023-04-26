@@ -1,21 +1,29 @@
 {{#if isSecondary}}
- {{#foreach navigation}}
-      <li class='mr-9 list-none '><a
-          href='{{url absolute='true'}}'
-          class='inline-block text-base text-gray-900 hover:text-gray-700'
-        >{{slug}}</a></li>
-    {{/foreach}}
+  {{#foreach navigation}}
+    <li class='mr-6 list-none'>
+      <a
+        href='{{url absolute='true'}}'
+        class='inline-block text-base text-gray-900 hover:text-gray-700'
+      >
+        {{slug}}
+      </a>
+    </li>
+  {{/foreach}}
 
   {{! code du menu secondaire }}
 
 {{else}}
-  <ul class='flex items-center justify-center'>
+  <ul class='flex flex-col lg:flex-row items-center justify-center'>
     <!-- Loop through the navigation items -->
     {{#foreach navigation}}
-      <li class='mr-9'><a
+      <li class='mb-6 lg:mb-0 lg:mr-6'>
+        <a
           href='{{url absolute='true'}}'
           class='inline-block text-xl font-bold text-gray-900 hover:text-gray-700'
-        >{{label}}</a></li>
+        >
+          {{label}}
+        </a>
+      </li>
     {{/foreach}}
     <!-- End the loop -->
   </ul>

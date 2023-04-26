@@ -43,10 +43,14 @@
                     <button class="block w-full py-2.5 text-6xl" data-ghost-search>{{> "icons/search"}}</button>
                   </div>
                   <div class="w-full md:w-auto p-2">
-                    <a class="block w-full px-4 py-2.5 text-xl text-center text-gray-900 font-bold bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:ring-gray-200 rounded-full" href="#/portal/signin" data-portal="signin">{{t "Sign in"}}</a>
+                    <a class="block w-full px-4 py-2.5 text-xl text-center text-gray-900 font-bold bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:ring-gray-200 rounded-full" href="#/portal/signin" data-portal="signin">
+                      {{t "Sign in"}}
+                    </a>
                   </div>
                   <div class="w-full md:w-auto p-2">
-                    <a class="block w-full px-4 py-2.5 text-xl text-center text-white font-bold rounded-full hover:opacity-75" style='background-color:{{@site.accent_color}};' href="#/portal/account" data-portal="account">{{t "Account"}}</a>
+                    <a class="block w-full px-4 py-2.5 text-xl text-center text-white font-bold rounded-full hover:opacity-75" style='background-color:{{@site.accent_color}};' href="#/portal/account" data-portal="account">
+                      {{t "Account"}}
+                    </a>
                   </div>
                 </div>
               </div>
@@ -64,20 +68,39 @@
             <div class="flex flex-wrap justify-between h-full">
               <div class="w-full">
                 <div class="flex items-center justify-between -m-2">
-                  <div class="w-auto p-2"><a class="inline-block" href="#"><img src="zanrly-assets/logos/zanrly-logo.svg" alt=""/></a></div>
-                  <div class="w-auto p-2"><a class="inline-block navbar-burger" href="#">
+                  <div class="w-auto p-2">
+                    <a href="{{@site.url}}">
+                        {{#if @site.logo}}
+                            <img class="w-16" src="{{@site.logo}}" alt="{{@site.title}}">
+                        {{else}}
+                            {{@site.title}}
+                        {{/if}}
+                    </a>
+                  </div>
+                  <div class="w-auto p-2">
+                    <a class="inline-block navbar-burger" href="#">
                       <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6 18L18 6M6 6L18 18" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                      </svg></a></div>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
-              <div class="flex flex-col justify-center py-8 w-full">
+              <div class="flex justify-center py-8 w-full">
                 {{navigation}}
               </div>
               <div class="flex flex-col justify-end w-full pb-8">
                 <div class="flex flex-wrap -m-2">
-                  <div class="w-full p-2"><a class="block w-full px-4 py-2.5 text-sm text-center text-gray-900 font-bold bg-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-200 border rounded-full" href="#">Log In</a></div>
-                  <div class="w-full p-2"><a class="block w-full px-4 py-2.5 text-sm text-center text-white font-bold bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-200 rounded-full" href="#">Get Started</a></div>
+                  <div class="w-full p-2">
+                    <a class="block w-full px-4 py-2.5 text-sm text-center text-gray-900 font-bold bg-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-200 border rounded-full" href="#/portal/signin" data-portal="account">
+                      {{t "Sign in"}}
+                    </a>
+                  </div>
+                  <div class="w-full p-2">
+                    <a class="block w-full px-4 py-2.5 text-sm text-center text-white font-bold bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-200 rounded-full" href="#/portal/account" data-portal="account">
+                      {{t "Account"}}
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -91,10 +114,8 @@
     </div>
 
     {{!-- The global footer at the very bottom of the screen --}}
-
-   
         <footer class="container mx-auto ">
-            <div class="py-16 px-8 mb-8 bg-gray-100 rounded-3xl">
+            <div class="p-8 my-8 bg-gray-100 rounded-3xl">
                 <div class="mx-auto ">
                     <div class="flex flex-wrap items-center justify-between ">
                         <section class="copyright">
@@ -106,7 +127,7 @@
                             {{/if}}
                          </a> 
                         </section>
-                        <nav class="flex w-auto p-4 bg-black">
+                        <nav class="flex w-auto p-4">
                             {{navigation type="secondary"}}
                         </nav>
                         <div class=" w-auto p-4">
@@ -132,14 +153,10 @@
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous">
   </script>
-  {{!-- <script src="{{asset "built/casper.js"}}"></script> --}}
   <script src="{{asset "js/infinite-scroll.js"}}"></script>
+  <script src="{{asset "js/dropdown.js"}}"></script>
   <script>
   $(document).ready(function () {
-      // Mobile Menu Trigger
-      $('.gh-burger').click(function () {
-          $('body').toggleClass('gh-head-open');
-      });
       // FitVids - Makes video embeds responsive
       $(".gh-content").fitVids();
   });
