@@ -15,7 +15,7 @@
                 />
                 <div class="p-8">
                     {{#primary_tag}}
-                        <span class="text-lg font-bold" style="color:{{@site.accent_color}};">{{name}}</span>
+                        <span class="text-xs sm:text-sm font-bold" style="color:{{@site.accent_color}};">{{name}}</span>
                     {{/primary_tag}}
                     <h3 class="font-heading text-2xl text-slate-800 hover:text-slate-600 group-hover:underline font-black">
                         {{#unless access}}
@@ -38,7 +38,7 @@
 
                     {{/if}}
                     <br>
-                    <p class="text-sm text-slate-500 italic"> <time datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
+                    <p class="text-xs sm:text-sm text-slate-500 italic"> <time datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
                             &bull; 
                             {{#if reading_time}}
                             <span class="">{{reading_time}}</span>

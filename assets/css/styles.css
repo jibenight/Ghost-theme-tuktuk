@@ -17,7 +17,18 @@ a {
   font-family: 'nunito';
 }
 
-#content-post h2 {
+/* Typography */
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.post-content h2 {
   font-size: 2.75rem;
   font-weight: 700;
   margin-top: 5%;
@@ -25,14 +36,92 @@ a {
   line-height: 1.2;
 }
 
-#content-post h3 {
+.post-content h3 {
   font-size: 1.75rem;
   font-weight: 700;
-  margin-top: 5%;
-  line-height: 1.2;
 }
 
-#content-post p {
-  font-size: 1.25rem;
-  line-height: 1.5;
+.post-content p {
+  margin-bottom: 1.5em;
+  line-height: 1.6;
+}
+
+.post-content ul,
+.post-content ol {
+  margin-bottom: 1.5em;
+  padding-left: 1.5em;
+}
+
+.post-content blockquote {
+  margin: 1.5em 0;
+  padding-left: 1.5em;
+  border-left: 3px solid #ccc;
+}
+
+.post-content pre {
+  background-color: #f6f8fa;
+  padding: 1em;
+  overflow-x: auto;
+}
+
+.post-content code {
+  font-family: monospace;
+  padding: 2px 4px;
+  border-radius: 4px;
+  background-color: #f6f8fa;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive Images */
+.kg-width-wide {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.kg-width-full {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.kg-gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -1em;
+}
+
+.kg-gallery-image {
+  flex-grow: 1;
+  position: relative;
+  padding: 1em;
+}
+
+.kg-gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.post-content figure {
+  display: inline-block;
+  margin: 16px 0;
+}
+
+.post-content figcaption {
+  font-style: italic;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 8px;
+  color: #555;
+}
+.post-content hr {
+  margin: 10px 0;
 }

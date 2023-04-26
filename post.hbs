@@ -46,14 +46,16 @@ into the {body} tag of the default.hbs template --}}
             
             </h1>
 
-            <div id="content-post">
-                <article>
+            <div class="post-content">
+                <article class="">
                     {{content}}
                     {{#primary_author}}
                     <p class="mt-5 italic text-slate-500">Author: <a href="{{url}}">{{name}}</a></p>
                     {{/primary_author}}
                 </article>
             </div>
+
+         
                 
             </section>
         </div>
