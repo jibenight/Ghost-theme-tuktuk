@@ -78,7 +78,7 @@ into the {body} tag of the default.hbs template --}}
     {{#get "posts" filter="primary_tag:{{primary_tag.slug}}" limit="3" as |more_posts|}}
 
         {{#if more_posts}}
-            <div class="flex flex-wrap -m-4 mb-6 post-feed">
+            <div class="flex flex-wrap post-feed mb-6 p-4 bg-slate-100  dark:bg-slate-800 rounded-3xl">
                 {{#foreach posts}}
                     {{> "post-card"}}
                 {{/foreach}}

@@ -2,7 +2,7 @@
 
 {{!-- hero section --}}
 <div class="container mx-auto {{#match @custom.header_style "Hidden"}}hidden{{/match}}">
-    <div class="mb-8 p-8 rounded-3xl bg-gray-100">
+    <div class="mb-8 p-8 rounded-3xl bg-gray-100 dark:bg-slate-800">
         <div class="flex flex-wrap {{#if @site.cover_image}}sm:flex-row-reverse lg:items-center{{/if}} -m-8">
             <div class="w-full {{#if @site.cover_image}}md:w-1/2{{/if}} p-8">
                 <div class="md:max-w-lg mx-auto text-center">
@@ -10,7 +10,7 @@
                         <img class="w-32 mx-auto mb-4 {{#match @custom.header_style "Without logo"}}hidden{{/match}} " src="{{@site.logo}}" alt="{{@site.title}}">
                     {{/if}}
                     {{#if @site.title}}
-                        <h1 class="font-heading mb-6 text-4xl md:text-5xl lg:text-6xl text-slate-800 font-black tracking-tight">{{@site.title}}</h1>
+                        <h1 class="font-heading mb-6 text-4xl md:text-5xl lg:text-6xl text-slate-800 dark:text-slate-300 font-black tracking-tight">{{@site.title}}</h1>
                     {{/if}}
                     {{#if @site.description}}
                         <p class="md:max-w-md mx-auto text-slate-500 font-bold">{{@site.description}}</p>
@@ -38,11 +38,11 @@
     
 {{!-- The main content area --}}
 <main id="site-main" class="container mx-auto">
-        <div class="py-16 px-8 bg-gray-100 rounded-3xl">
+        <div class="py-16 px-8 bg-slate-100  dark:bg-slate-800 rounded-3xl">
             <div class="max-w-7xl mx-auto">
                 {{!-- intro --}}
                 <div class="mb-12 md:max-w-4xl mx-auto text-center"><span class="inline-block mb-4 text-sm font-bold uppercase tracking-widest" style='color:{{@site.accent_color}};'>Blog</span>
-                <h2 class="font-heading mb-6 text-4xl md:text-5xl lg:text-6xl text-slate-800 font-black tracking-tight">Resources and stories center</h2>
+                <h2 class="font-heading mb-6 text-4xl md:text-5xl lg:text-6xl text-slate-800 dark:text-slate-300 font-black tracking-tight">Resources and stories center</h2>
                 {{!-- <p class="md:max-w-md mx-auto text-gray-500 font-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada tellus vestibulum, commodo pulvinar.</p> --}}
                 </div>
                 

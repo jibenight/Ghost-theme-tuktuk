@@ -1,10 +1,10 @@
 {{#if isSecondary}}
   <ul class='flex flex-wrap justify-center'>
     {{#foreach navigation}}
-      <li class='mr-6 list-none'>
+      <li class='mx-3 list-none'>
         <a
           href='{{url absolute='true'}}'
-          class='inline-block text-base text-gray-900 hover:text-gray-700'
+          class='inline-block text-base text-gray-900 hover:text-gray-700 dark:text-gray-200'
         >
           {{slug}}
         </a>
@@ -18,7 +18,7 @@
       <li class='mb-6 lg:mb-0 lg:mr-6'>
         <a
           href='{{url absolute='true'}}'
-          class='inline-block text-xl font-bold text-gray-900 hover:text-gray-700'
+          class='inline-block text-xl font-bold text-gray-900 dark:text-slate-200 hover:text-gray-700'
         >
           {{label}}
         </a>
