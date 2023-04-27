@@ -1,14 +1,11 @@
 {{!< default}}
-
 {{!-- The tag above means: insert everything in this file
 into the {body} tag of the default.hbs template --}}
-
-
 {{#post}}
 {{!-- Everything inside the #post block pulls data from the post --}}
-<article class="w-full ">   
-    <div class=" h-full bg-white rounded-3xl">
-        <img class="w-full sm:h-96 lg:h-[500px] object-cover rounded-t-3xl"
+<article class="w-full bg-white rounded-3xl">   
+    <div class=" {{#match @custom.post_image_style "Small"}} pb-4 {{/match}}">
+        <img class=" {{#match @custom.post_image_style "Full"}}w-full rounded-t-3xl {{/match}} {{#match @custom.post_image_style "Hidden"}} hidden {{/match}} {{#match @custom.post_image_style "Small"}} w-1/2 mx-auto {{/match}} sm:h-96 lg:h-[500px] object-cover"
             srcset="{{img_url feature_image size="s"}} 300w,
                     {{img_url feature_image size="m"}} 600w,
                     {{img_url feature_image size="l"}} 1000w,
@@ -20,63 +17,55 @@ into the {body} tag of the default.hbs template --}}
         />
         <div class="p-8">
             <section class="m-auto xl:w-2/3">
-            {{#primary_tag}}
-                <span class="text-lg font-bold" style="color:{{@site.accent_color}};">{{name}} </span>
-            {{/primary_tag}}
-            
-            <span class="text-sm text-slate-500 italic"> &bull; <time datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
-                            &bull; 
-                            {{#if reading_time}}
-                            <span class="">{{reading_time}}</span>
-                        {{/if}}
-                        {{#if @site.comments_enabled}}
-                            {{comment_count}}
-                        {{/if}}
-                        
-            </span>
-            <h1 class="font-heading py-6 sm:text-4xl lg:text-6xl text-gray-900 hover:text-gray-700 font-black">
-                {{#unless access}}
-                    {{^has visibility="public"}}
-                        {{#unless feature_image}}
-                            {{> "icons/lock"}}
-                        {{/unless}}
-                    {{/has}}
-                {{/unless}}
-            {{title}}
-            
-            </h1>
-
-            <div class="post-content">
-                <article class="">
-                    {{content}}
-                    {{#primary_author}}
-                    <p class="mt-5 italic text-slate-500">Author: <a href="{{url}}">{{name}}</a></p>
-                    {{/primary_author}}
-                </article>
-            </div>
-
-         
-                
+                {{#primary_tag}}
+                    <span class="text-lg font-bold" style="color:{{@site.accent_color}};">{{name}} </span>
+                {{/primary_tag}}
+                <span class="text-sm text-slate-500 italic"> 
+                    &bull; 
+                    <time datetime="{{date format="YYYY-MM-DD"}}">
+                        {{date}}
+                    </time>
+                    &bull; 
+                    {{#if reading_time}}
+                        <span class="">
+                            {{reading_time}}
+                        </span>
+                    {{/if}}
+                    {{#if @site.comments_enabled}}
+                        {{comment_count}}
+                    {{/if}}
+                </span>
+                <h1 class="font-heading py-6 sm:text-4xl lg:text-6xl text-gray-900 hover:text-gray-700 font-black">
+                    {{#unless access}}
+                        {{^has visibility="public"}}
+                            {{#unless feature_image}}
+                                {{> "icons/lock"}}
+                            {{/unless}}
+                        {{/has}}
+                    {{/unless}}
+                {{title}}
+                </h1>
+                <div class="post-content">
+                    <article class="">
+                        {{content}}
+                        {{#primary_author}}
+                        <p class="mt-5 italic text-slate-500">Author: <a href="{{url}}">{{name}}</a></p>
+                        {{/primary_author}}
+                    </article>
+                </div>
             </section>
         </div>
     </div>
 </article>
     
-
-
 {{!-- A signup call to action is displayed here, unless viewed as a logged-in member --}}
 {{> "newsletter"}}
 
-
 {{!-- Read more links, just above the footer --}}
 {{#if @custom.show_recent_posts_footer}}
-    {{!-- The {#get} helper below fetches some of the latest posts here
-    so that people have something else to read when they finish this one.
-
-    This query gets the latest 3 posts on the site, but adds a filter to
+    {{!-- This query gets the latest 3 posts on the site, but adds a filter to
     exclude the post we're currently on from being included. --}}
     {{#get "posts" filter="primary_tag:{{primary_tag.slug}}" limit="3" as |more_posts|}}
-
         {{#if more_posts}}
             <div class="flex flex-wrap post-feed mb-6 p-4 bg-slate-100  dark:bg-slate-800 rounded-3xl">
                 {{#foreach posts}}
@@ -84,7 +73,6 @@ into the {body} tag of the default.hbs template --}}
                 {{/foreach}}
             </div>
         {{/if}}
-
     {{/get}}
 {{/if}}
 

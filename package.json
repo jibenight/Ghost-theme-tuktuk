@@ -134,12 +134,11 @@
       "post_image_style": {
         "type": "select",
         "options": [
-          "Wide",
           "Full",
           "Small",
           "Hidden"
         ],
-        "default": "Wide",
+        "default": "Full",
         "group": "post"
       },
       "email_signup_text": {
