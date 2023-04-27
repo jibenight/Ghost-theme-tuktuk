@@ -6,16 +6,6 @@
   font-family: 'nunito';
   src: url(../fonts/nunito/Nunito-VariableFont_wght.ttf);
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a {
-  font-family: 'nunito';
-}
 
 /* Typography */
 .post-content h1,

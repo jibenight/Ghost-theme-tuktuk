@@ -834,6 +834,9 @@ video {
 .text-center {
   text-align: center;
 }
+.font-nunito {
+  font-family: nunito, arial, sans-serif;
+}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -950,16 +953,6 @@ video {
 @font-face {
   font-family: 'nunito';
   src: url(../fonts/nunito/Nunito-VariableFont_wght.ttf);
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a {
-  font-family: 'nunito';
 }
 /* Typography */
 .post-content h1,

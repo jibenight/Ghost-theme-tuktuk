@@ -84,18 +84,18 @@
       "title_font": {
         "type": "select",
         "options": [
-          "Modern sans-serif",
-          "Elegant serif"
+          "Nunito",
+          "Arial"
         ],
-        "default": "Modern sans-serif"
+        "default": "Nunito"
       },
       "body_font": {
         "type": "select",
         "options": [
-          "Modern sans-serif",
-          "Elegant serif"
+          "Nunito",
+          "Arial"
         ],
-        "default": "Elegant serif"
+        "default": "Nunito"
       },
       "show_publication_cover": {
         "type": "boolean",

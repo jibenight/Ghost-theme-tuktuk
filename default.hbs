@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="{{asset "css/output.css"}}">
     <link rel="stylesheet" href="{{asset "css/cards.css"}}">
     {{ghost_head}}
-
 </head>
-<body class="bg-slate-200 dark:bg-slate-900 container mx-auto px-5">
+<body class="bg-slate-200 dark:bg-slate-900 container mx-auto px-5 {{#match @custom.body_font "Nunito"}} font-nunito {{/match}}">
     {{!-- The main content area --}}
     <header class="my-5">
       <div class="container mx-auto">
