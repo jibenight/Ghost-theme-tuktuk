@@ -4,17 +4,22 @@ into the {body} tag of the default.hbs template --}}
 {{#post}}
 {{!-- Everything inside the #post block pulls data from the post --}}
 <article class="w-full bg-white rounded-3xl">   
-    <div class=" {{#match @custom.post_image_style "Small"}} pb-4 {{/match}}">
-        <img class=" {{#match @custom.post_image_style "Full"}}w-full rounded-t-3xl {{/match}} {{#match @custom.post_image_style "Hidden"}} hidden {{/match}} {{#match @custom.post_image_style "Small"}} w-1/2 mx-auto {{/match}} sm:h-96 lg:h-[500px] object-cover"
-            srcset="{{img_url feature_image size="s"}} 300w,
-                    {{img_url feature_image size="m"}} 600w,
-                    {{img_url feature_image size="l"}} 1000w,
-                    {{img_url feature_image size="xl"}} 2000w"
-            sizes="(max-width: 1000px) 400px, 800px"
-            src="{{img_url feature_image size="m"}}"
-            alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-            loading="lazy"
-        />
+    <div class=" {{#match @custom.post_image_style "Small"}} pt-6 {{/match}}">
+        <figure>
+            <img class="{{#match @custom.post_image_style "Full"}}w-full rounded-t-3xl{{/match}}{{#match @custom.post_image_style "Hidden"}} hidden{{/match}}{{#match @custom.post_image_style "Small"}} w-1/2 mx-auto{{/match}} sm:h-96 lg:h-[500px] object-cover"
+                                srcset="{{img_url feature_image size="s"}} 300w,
+                                        {{img_url feature_image size="m"}} 600w,
+                                        {{img_url feature_image size="l"}} 1000w,
+                                        {{img_url feature_image size="xl"}} 2000w"
+                                sizes="(max-width: 1000px) 400px, 800px"
+                                src="{{img_url feature_image size="m"}}"
+                                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                loading="lazy"
+                            />
+            {{#if feature_image_caption}}
+                <figcaption class="italic text-slate-400 {{#match @custom.post_image_style "Full"}}text-right pr-3 {{/match}} text-xs sm:text-sm {{#match @custom.post_image_style "Small"}} text-center {{/match}}">{{feature_image_caption}}</figcaption>
+            {{/if}}
+        </figure>
         <div class="p-8">
             <section class="m-auto xl:w-2/3">
                 {{#primary_tag}}
@@ -35,7 +40,10 @@ into the {body} tag of the default.hbs template --}}
                         {{comment_count}}
                     {{/if}}
                 </span>
-                <h1 class="font-heading py-6 sm:text-4xl lg:text-6xl text-gray-900 hover:text-gray-700 font-black">
+                {{#primary_author}}
+                        <p class="mt-2 italic text-slate-500">Author: <a href="{{url}}">{{name}}</a></p>
+                {{/primary_author}}
+                <h1 class="font-heading py-6 text-4xl lg:text-6xl text-slate-900 hover:text-slate-700 font-black">
                     {{#unless access}}
                         {{^has visibility="public"}}
                             {{#unless feature_image}}
@@ -46,11 +54,8 @@ into the {body} tag of the default.hbs template --}}
                 {{title}}
                 </h1>
                 <div class="post-content">
-                    <article class="">
+                    <article class="gh-content">
                         {{content}}
-                        {{#primary_author}}
-                        <p class="mt-5 italic text-slate-500">Author: <a href="{{url}}">{{name}}</a></p>
-                        {{/primary_author}}
                     </article>
                 </div>
             </section>

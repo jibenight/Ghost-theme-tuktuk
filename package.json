@@ -97,11 +97,6 @@
         ],
         "default": "Nunito"
       },
-      "show_publication_cover": {
-        "type": "boolean",
-        "default": true,
-        "group": "homepage"
-      },
       "header_style": {
         "type": "select",
         "options": [
@@ -112,14 +107,18 @@
         "default": "Center aligned",
         "group": "homepage"
       },
+      "second_title": {
+        "type": "text",
+        "default": "Resources and stories center",
+        "group": "homepage"
+      },
       "feed_layout": {
         "type": "select",
         "options": [
-          "Classic",
           "Grid",
           "List"
         ],
-        "default": "Classic",
+        "default": "Grid",
         "group": "homepage"
       },
       "color_scheme": {
