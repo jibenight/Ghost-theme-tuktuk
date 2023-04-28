@@ -17,7 +17,7 @@ into the {body} tag of the default.hbs template --}}
                                 loading="lazy"
                             />
             {{#if feature_image_caption}}
-                <figcaption class="italic text-slate-400 {{#match @custom.post_image_style "Full"}}text-right pr-3 {{/match}} text-xs sm:text-sm {{#match @custom.post_image_style "Small"}} text-center {{/match}}">{{feature_image_caption}}</figcaption>
+                <figcaption class="italic text-slate-400 {{#match @custom.post_image_style "Full"}}text-right pr-3 {{/match}} text-xs sm:text-[12px] {{#match @custom.post_image_style "Small"}} text-center {{/match}}">{{feature_image_caption}}</figcaption>
             {{/if}}
         </figure>
         <div class="p-8">
