@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="{{asset "js/darkmode.js"}}"></script>
     <link rel="stylesheet" href="{{asset "css/output.css"}}">
-    <link rel="stylesheet" href="{{asset "css/cards.css"}}">
     {{ghost_head}}
 </head>
 <body class="bg-slate-200 dark:bg-slate-900 container mx-auto px-5 {{#match @custom.body_font "Nunito"}} font-nunito {{/match}}">
@@ -133,17 +132,11 @@
                             {{navigation type="secondary"}}
                         </nav>
 
-                        {{!-- <div class=" w-auto p-4">
+                        <div class=" w-auto p-4">
                             <div class="flex flex-wrap -m-4">
-                                <div id="ad-footer" class="w-auto p-4">
-                                  <a class="inline-block" href="https://www.getyourguide.fr/"
-                                        target="_blank">
-                                        <img src="" alt="">
-                                        GET YOUR GUIDE
-                                  </a>
-                                </div>
+                                <span class="w-10"><img src="./partials/icons/dark.svg" alt=""></span>
                             </div>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -152,7 +145,7 @@
                 <a class="text-blue-500 hover:text-blue-600" href="#">Conditions d'utilisations</a>
             </p> --}}
             <div>
-              <p class="text-sm text-center mb-3 ">
+              <p class="text-sm text-center mb-12 mt-12">
                 <a class="text-slate-500" href="https://ghost.org/" target="_blank" rel="noopener">
                   Powered by Ghost
                 </a>

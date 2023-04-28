@@ -21,50 +21,63 @@ into the {body} tag of the default.hbs template --}}
             {{/if}}
         </figure>
         <div class="p-8">
-            <section class="m-auto xl:w-2/3">
-                {{#primary_tag}}
-                    <span class="text-lg font-bold" style="color:{{@site.accent_color}};">{{name}} </span>
-                {{/primary_tag}}
-                <span class="text-sm text-slate-500 italic"> 
-                    &bull; 
-                    <time datetime="{{date format="YYYY-MM-DD"}}">
-                        {{date}}
-                    </time>
-                    &bull; 
-                    {{#if reading_time}}
-                        <span class="">
-                            {{reading_time}}
-                        </span>
-                    {{/if}}
-                    {{#if @site.comments_enabled}}
-                        {{comment_count}}
-                    {{/if}}
-                </span>
-                {{#primary_author}}
-                        <p class="mt-2 italic text-slate-500">Author: <a href="{{url}}">{{name}}</a></p>
-                {{/primary_author}}
-                <h1 class="font-heading py-6 text-4xl lg:text-6xl text-slate-900 hover:text-slate-700 font-black">
-                    {{#unless access}}
-                        {{^has visibility="public"}}
-                            {{#unless feature_image}}
-                                {{> "icons/lock"}}
-                            {{/unless}}
-                        {{/has}}
-                    {{/unless}}
-                {{title}}
-                </h1>
-                <div class="post-content">
-                    <article class="gh-content">
-                        {{content}}
-                    </article>
-                </div>
-            </section>
+            <article class="m-auto">
+                <header class="gh-canvas"> 
+                    {{#primary_tag}}
+                        <span class="text-lg font-bold" style="color:{{@site.accent_color}};">{{name}} </span>
+                    {{/primary_tag}}
+                    <span class="text-sm text-slate-500 italic"> 
+                        &bull; 
+                        <time datetime="{{date format="YYYY-MM-DD"}}">
+                            {{date}}
+                        </time>
+                        &bull; 
+                        {{#if reading_time}}
+                            <span class="">
+                                {{reading_time}}
+                            </span>
+                        {{/if}}
+                        {{#if @site.comments_enabled}}
+                            {{comment_count}}
+                        {{/if}}
+                    </span>
+                    {{#primary_author}}
+                            <p class="mt-2 italic text-slate-500">Author: <a href="{{url}}">{{name}}</a></p>
+                    {{/primary_author}}
+                    <h1 class="font-heading py-6 text-4xl lg:text-6xl text-slate-900 hover:text-slate-700 font-black">
+                        {{#unless access}}
+                            {{^has visibility="public"}}
+                                {{#unless feature_image}}
+                                    {{> "icons/lock"}}
+                                {{/unless}}
+                            {{/has}}
+                        {{/unless}}
+                    {{title}}
+                    </h1>
+                </header>
+                <section class="gh-content gh-canvas">
+                    {{content}}
+                </section>
+                {{#if comments}}
+                    <section class="article-comments gh-canvas">
+                        {{comments}}
+                    </section>
+                {{/if}}
+            </article>
         </div>
     </div>
 </article>
     
 {{!-- A signup call to action is displayed here, unless viewed as a logged-in member --}}
-{{> "newsletter"}}
+{{#if @site.members_enabled}}
+    {{#unless @member}}
+        {{#unless @site.comments_enabled}}
+            {{#if access}}
+                {{> "newsletter"}}
+            {{/if}}
+        {{/unless}}
+    {{/unless}}
+{{/if}}
 
 {{!-- Read more links, just above the footer --}}
 {{#if @custom.show_recent_posts_footer}}
