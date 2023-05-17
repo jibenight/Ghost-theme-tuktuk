@@ -1,3 +1,5 @@
+let currentTheme = 'auto';
+
 function setTheme(theme) {
   if (theme === 'dark') {
     document.documentElement.classList.add('dark');
@@ -6,7 +8,7 @@ function setTheme(theme) {
     document.documentElement.classList.remove('dark');
     localStorage.theme = 'light';
   } else {
-    localStorage.removeItem('theme');
+    localStorage.theme = 'auto';
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       document.documentElement.classList.add('dark');
     } else {
@@ -15,26 +17,44 @@ function setTheme(theme) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+function setInitialTheme() {
+  const themeButton = document.getElementById('toggle-theme');
+
   if (
     localStorage.theme === 'dark' ||
     (!('theme' in localStorage) &&
       window.matchMedia('(prefers-color-scheme: dark)').matches)
   ) {
     document.documentElement.classList.add('dark');
-  } else {
+    currentTheme = 'dark';
+    themeButton.innerHTML = '<img src="../../partials/icons/moon.svg" >';
+  } else if (localStorage.theme === 'light') {
     document.documentElement.classList.remove('dark');
+    currentTheme = 'light';
+    themeButton.innerHTML = '<img src="../../partials/icons/sun.svg" >';
+  } else {
+    currentTheme = 'auto';
+    setTheme(currentTheme);
+    themeButton.innerHTML = '<img src="../../partials/icons/auto.svg" >';
   }
+}
 
-  document.getElementById('light-mode').addEventListener('click', function () {
-    setTheme('light');
-  });
-
-  document.getElementById('dark-mode').addEventListener('click', function () {
-    setTheme('dark');
-  });
-
-  document.getElementById('auto-mode').addEventListener('click', function () {
-    setTheme('auto');
-  });
+document.addEventListener('DOMContentLoaded', function () {
+  setInitialTheme();
+  document
+    .getElementById('toggle-theme')
+    .addEventListener('click', function () {
+      const themeButton = document.getElementById('toggle-theme');
+      if (currentTheme === 'light') {
+        currentTheme = 'dark';
+        themeButton.innerHTML = '<img src="../../partials/icons/moon.svg" >';
+      } else if (currentTheme === 'dark') {
+        currentTheme = 'auto';
+        themeButton.innerHTML = '<img src="../../partials/icons/auto.svg" >';
+      } else {
+        currentTheme = 'light';
+        themeButton.innerHTML = '<img src="../../partials/icons/sun.svg" >';
+      }
+      setTheme(currentTheme);
+    });
 });
