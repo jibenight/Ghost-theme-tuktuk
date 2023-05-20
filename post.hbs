@@ -20,31 +20,37 @@ into the {body} tag of the default.hbs template --}}
                 <figcaption class="italic text-slate-400 {{#match @custom.post_image_style "Full"}}text-right pr-3 {{/match}} text-xs sm:text-[12px] {{#match @custom.post_image_style "Small"}} text-center {{/match}}">{{feature_image_caption}}</figcaption>
             {{/if}}
         </figure>
-        <div class="p-8">
+        <div class="pb-8 lg:p-8">
             <article class="m-auto">
-                <header class="gh-canvas"> 
+                <header class="gh-canvas">
+                    <div class="flex items-center mt-3">
                     {{#primary_tag}}
-                        <span class="text-lg font-bold" style="color:{{@site.accent_color}};">{{name}} </span>
+                        <span class="text-xl font-bold" style="color:{{@site.accent_color}};">{{name}} </span>
                     {{/primary_tag}}
-                    <span class="text-sm text-slate-500 italic"> 
-                        &bull; 
-                        <time datetime="{{date format="YYYY-MM-DD"}}">
-                            {{date}}
-                        </time>
-                        &bull; 
-                        {{#if reading_time}}
-                            <span class="">
-                                {{reading_time}}
+                        <span class="text-sm text-slate-500 italic">
+                            <span class="mx-1">
+                                &bull; 
                             </span>
-                        {{/if}}
-                        {{#if @site.comments_enabled}}
-                            {{comment_count}}
-                        {{/if}}
-                    </span>
-                    {{#primary_author}}
-                            <p class="mt-2 italic text-slate-500">Author: <a href="{{url}}">{{name}}</a></p>
-                    {{/primary_author}}
-                    <h1 class="font-heading py-6 text-4xl lg:text-6xl text-slate-900 hover:text-slate-700 font-black">
+                            
+                            <time datetime="{{date format="YYYY-MM-DD"}}">
+                                {{date}}
+                            </time>
+                            <span class="mx-1">
+                                &bull; 
+                            </span>
+                            {{#if reading_time}}
+                                <span class="">
+                                    {{reading_time}}
+                                </span>
+                            {{/if}}
+                            {{#if @site.comments_enabled}}
+                                {{comment_count}}
+                            {{/if}}
+                        </span>
+                    </div> 
+                  
+                   
+                    <h1 class="text-slate-900 font-black">
                         {{#unless access}}
                             {{^has visibility="public"}}
                                 {{#unless feature_image}}
@@ -57,6 +63,9 @@ into the {body} tag of the default.hbs template --}}
                 </header>
                 <section class="gh-content gh-canvas">
                     {{content}}
+                    {{#primary_author}}
+                        <p class="mt-2 italic text-slate-500">Author: <a href="{{url}}">{{name}}</a></p>
+                    {{/primary_author}}
                 </section>
                 {{#if comments}}
                     <section class="article-comments gh-canvas">

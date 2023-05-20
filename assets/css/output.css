@@ -563,6 +563,10 @@ video {
 .m-auto {
   margin: auto;
 }
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
 .mx-3 {
   margin-left: 0.75rem;
   margin-right: 0.75rem;
@@ -604,6 +608,9 @@ video {
 }
 .mt-2 {
   margin-top: 0.5rem;
+}
+.mt-3 {
+  margin-top: 0.75rem;
 }
 .mt-5 {
   margin-top: 1.25rem;
@@ -775,13 +782,13 @@ video {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
 }
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
-}
-.px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
 }
 .px-6 {
   padding-left: 1.5rem;
@@ -1024,9 +1031,9 @@ is the very first element in the post content */
   margin: 2em 0 0;
 }
 /* Add a small margin between a heading and anything after it */
-.gh-content > [id] + * {
+/* .gh-content > [id] + * {
   margin-top: 1.5rem !important;
-}
+} */
 /* A larger margin before/after HRs and blockquotes */
 .gh-content > hr,
 .gh-content > blockquote {
@@ -1204,17 +1211,16 @@ except for when immediately preceeded by a heading */
 }
 /* Captions */
 figcaption {
-  padding: 1.5rem 1.5rem 0;
   text-align: center;
   color: rgba(0, 0, 0, 0.5);
-  font-size: 1.3rem;
-  line-height: 1.4em;
+  /* font-size: 1.3rem;
+  line-height: 1.4em; */
 }
 figcaption strong {
   color: rgba(0, 0, 0, 0.8);
 }
 figcaption a {
-  text-decoration: underline;
+  text-decoration: none;
 }
 /* Highly specific styles for traditional Instagram embeds */
 iframe.instagram-media {
@@ -1336,6 +1342,61 @@ iframe.instagram-media + script + :not([id]) {
 .comments #ghost-comments-root {
   width: 100%;
   max-width: 720px;
+}
+/* Title pages and posts
+/* ---------------------------------------------------------- */
+.gh-canvas h1 {
+  font-size: 4.8rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+@media (max-width: 600px) {
+  .gh-canvas h1 {
+    font-size: 2.8rem;
+  }
+}
+.gh-content h2 {
+  margin: 1.5em 0 0.5em 0;
+  font-size: 2.8rem;
+  line-height: 3rem;
+  font-weight: 700;
+}
+@media (max-width: 600px) {
+  .gh-content h2 {
+    font-size: 2.3rem;
+  }
+}
+.gh-content h3 {
+  margin: 1.5em 0 0.5em 0;
+  line-height: 3rem;
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+@media (max-width: 600px) {
+  .gh-content h3 {
+    font-size: 1.7rem;
+  }
+}
+.gh-content h4 {
+  margin: 1.5em 0 0.5em 0;
+  font-size: 2rem;
+}
+@media (max-width: 600px) {
+  .gh-content h4 {
+    font-size: 1.7rem;
+  }
+}
+.gh-content h5 {
+  margin: 1.5em 0 0.5em 0;
+  font-size: 2rem;
+}
+.gh-content h6 {
+  margin: 1.5em 0 0.5em 0;
+  font-size: 1.8rem;
+}
+.gh-content p {
+  font-size: 1.2rem;
+  margin-top: 0;
 }
 .hover\:bg-blue-600:hover {
   --tw-bg-opacity: 1;
@@ -1529,6 +1590,15 @@ iframe.instagram-media + script + :not([id]) {
 
   .lg\:items-center {
     align-items: center;
+  }
+
+  .lg\:p-8 {
+    padding: 2rem;
+  }
+
+  .lg\:px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   .lg\:text-6xl {

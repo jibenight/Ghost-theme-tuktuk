@@ -76,9 +76,9 @@ is the very first element in the post content */
 }
 
 /* Add a small margin between a heading and anything after it */
-.gh-content > [id] + * {
+/* .gh-content > [id] + * {
   margin-top: 1.5rem !important;
-}
+} */
 
 /* A larger margin before/after HRs and blockquotes */
 .gh-content > hr,
@@ -283,17 +283,16 @@ except for when immediately preceeded by a heading */
 
 /* Captions */
 figcaption {
-  padding: 1.5rem 1.5rem 0;
   text-align: center;
   color: rgba(0, 0, 0, 0.5);
-  font-size: 1.3rem;
-  line-height: 1.4em;
+  /* font-size: 1.3rem;
+  line-height: 1.4em; */
 }
 figcaption strong {
   color: rgba(0, 0, 0, 0.8);
 }
 figcaption a {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Highly specific styles for traditional Instagram embeds */
@@ -432,4 +431,67 @@ iframe.instagram-media + script + :not([id]) {
 .comments #ghost-comments-root {
   width: 100%;
   max-width: 720px;
+}
+
+/* Title pages and posts
+/* ---------------------------------------------------------- */
+
+.gh-canvas h1 {
+  font-size: 4.8rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+@media (max-width: 600px) {
+  .gh-canvas h1 {
+    font-size: 2.8rem;
+  }
+}
+
+.gh-content h2 {
+  margin: 1.5em 0 0.5em 0;
+  font-size: 2.8rem;
+  line-height: 3rem;
+  font-weight: 700;
+}
+@media (max-width: 600px) {
+  .gh-content h2 {
+    font-size: 2.3rem;
+  }
+}
+
+.gh-content h3 {
+  margin: 1.5em 0 0.5em 0;
+  line-height: 3rem;
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+@media (max-width: 600px) {
+  .gh-content h3 {
+    font-size: 1.7rem;
+  }
+}
+
+.gh-content h4 {
+  margin: 1.5em 0 0.5em 0;
+  font-size: 2rem;
+}
+@media (max-width: 600px) {
+  .gh-content h4 {
+    font-size: 1.7rem;
+  }
+}
+
+.gh-content h5 {
+  margin: 1.5em 0 0.5em 0;
+  font-size: 2rem;
+}
+
+.gh-content h6 {
+  margin: 1.5em 0 0.5em 0;
+  font-size: 1.8rem;
+}
+
+.gh-content p {
+  font-size: 1.2rem;
+  margin-top: 0;
 }
