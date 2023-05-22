@@ -63,8 +63,8 @@
           </div>
         </div>
         <div class="hidden navbar-menu fixed top-0 left-0 bottom-0 w-4/6 sm:max-w-xs z-50">
-          <div class="navbar-backdrop fixed inset-0 bg-slate-800 opacity-80"></div>
-          <nav class="relative z-10 px-9 pt-8 bg-white h-full overflow-y-auto">
+          <div class="navbar-backdrop fixed inset-0 bg-slate-800 dark:bg-slate-200 opacity-80"></div>
+          <nav class="relative z-10 px-9 pt-8 bg-slate-200 dark:bg-slate-900 h-full overflow-y-auto">
             <div class="flex flex-wrap justify-between h-full">
               <div class="w-full">
                 <div class="flex items-center justify-between -m-2">
@@ -78,8 +78,8 @@
                     </a>
                   </div>
                   <div class="w-auto p-2">
-                    <a class="inline-block navbar-burger" href="#">
-                      <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <a class="inline-block navbar-burger dark:bg-slate-200 dark:rounded-full dark:p-1" href="#">
+                      <svg width="34" height="34" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6 18L18 6M6 6L18 18" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                       </svg>
                     </a>
@@ -128,14 +128,14 @@
                             </a> 
                         </div>
 
-                        <nav class="p-2">
+                        <nav class="py-5  lg:p-2">
                             {{navigation type="secondary"}}
                         </nav>
 
                         <div class="w-auto p-4">
                           <div class="flex flex-wrap -m-4">
                               <button class="w-10" id="toggle-theme">
-                                  
+                                  {{!-- insert svg icon by js --}}
                               </button>
                           </div>
                       </div>

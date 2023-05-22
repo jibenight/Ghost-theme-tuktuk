@@ -575,6 +575,10 @@ video {
   margin-left: auto;
   margin-right: auto;
 }
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
 .my-5 {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
@@ -608,9 +612,6 @@ video {
 }
 .mt-2 {
   margin-top: 0.5rem;
-}
-.mt-3 {
-  margin-top: 0.75rem;
 }
 .mt-5 {
   margin-top: 1.25rem;
@@ -825,6 +826,10 @@ video {
 .py-3\.5 {
   padding-top: 0.875rem;
   padding-bottom: 0.875rem;
+}
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 .py-6 {
   padding-top: 1.5rem;
@@ -1349,11 +1354,12 @@ iframe.instagram-media + script + :not([id]) {
   font-size: clamp(3.2rem, 5vw, 5.2rem);
   font-weight: 700;
   letter-spacing: -0.015em;
+  line-height: 1.2em;
 }
 .gh-content h2 {
   margin: 1em 0 0.5em 0;
   font-size: 2.3rem;
-  line-height: 3rem;
+  line-height: 1.2em;
   font-weight: 700;
 }
 @media (max-width: 600px) {
@@ -1362,9 +1368,9 @@ iframe.instagram-media + script + :not([id]) {
   }
 }
 .gh-content h3 {
-  margin: 1.5em 0 0.5em 0;
-  line-height: 3rem;
+  margin: 1.8em 0 0.5em 0;
   font-size: 2rem;
+  line-height: 1.2em;
   font-weight: 600;
 }
 @media (max-width: 600px) {
@@ -1375,6 +1381,7 @@ iframe.instagram-media + script + :not([id]) {
 .gh-content h4 {
   margin: 1.8em 0 0.5em 0;
   font-size: 1.7rem;
+  line-height: 1.2em;
 }
 @media (max-width: 600px) {
   .gh-content h4 {
@@ -1383,11 +1390,12 @@ iframe.instagram-media + script + :not([id]) {
 }
 .gh-content h5 {
   margin: 1.5em 0 0.5em 0;
-  font-size: 2rem;
+  font-size: 1.7rem;
+  line-height: 1.2em;
 }
 .gh-content h6 {
   margin: 1.5em 0 0.5em 0;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
 }
 .gh-content p {
   font-size: 1.2rem;
@@ -1440,6 +1448,13 @@ iframe.instagram-media + script + :not([id]) {
 .group:hover .group-hover\:underline {
   text-decoration-line: underline;
 }
+:is(.dark .dark\:rounded-full) {
+  border-radius: 9999px;
+}
+:is(.dark .dark\:bg-slate-200) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+}
 :is(.dark .dark\:bg-slate-800) {
   --tw-bg-opacity: 1;
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
@@ -1447,6 +1462,9 @@ iframe.instagram-media + script + :not([id]) {
 :is(.dark .dark\:bg-slate-900) {
   --tw-bg-opacity: 1;
   background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+}
+:is(.dark .dark\:p-1) {
+  padding: 0.25rem;
 }
 :is(.dark .dark\:text-gray-200) {
   --tw-text-opacity: 1;
@@ -1585,6 +1603,10 @@ iframe.instagram-media + script + :not([id]) {
 
   .lg\:items-center {
     align-items: center;
+  }
+
+  .lg\:p-2 {
+    padding: 0.5rem;
   }
 
   .lg\:p-8 {

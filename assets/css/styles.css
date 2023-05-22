@@ -434,16 +434,18 @@ iframe.instagram-media + script + :not([id]) {
 
 /* Title pages and posts
 /* ---------------------------------------------------------- */
+
 .gh-canvas h1 {
   font-size: clamp(3.2rem, 5vw, 5.2rem);
   font-weight: 700;
   letter-spacing: -0.015em;
+  line-height: 1.2em;
 }
 
 .gh-content h2 {
   margin: 1em 0 0.5em 0;
   font-size: 2.3rem;
-  line-height: 3rem;
+  line-height: 1.2em;
   font-weight: 700;
 }
 @media (max-width: 600px) {
@@ -453,9 +455,9 @@ iframe.instagram-media + script + :not([id]) {
 }
 
 .gh-content h3 {
-  margin: 1.5em 0 0.5em 0;
-  line-height: 3rem;
+  margin: 1.8em 0 0.5em 0;
   font-size: 2rem;
+  line-height: 1.2em;
   font-weight: 600;
 }
 @media (max-width: 600px) {
@@ -467,6 +469,7 @@ iframe.instagram-media + script + :not([id]) {
 .gh-content h4 {
   margin: 1.8em 0 0.5em 0;
   font-size: 1.7rem;
+  line-height: 1.2em;
 }
 @media (max-width: 600px) {
   .gh-content h4 {
@@ -476,12 +479,13 @@ iframe.instagram-media + script + :not([id]) {
 
 .gh-content h5 {
   margin: 1.5em 0 0.5em 0;
-  font-size: 2rem;
+  font-size: 1.7rem;
+  line-height: 1.2em;
 }
 
 .gh-content h6 {
   margin: 1.5em 0 0.5em 0;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
 }
 
 .gh-content p {
