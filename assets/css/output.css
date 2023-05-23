@@ -1345,53 +1345,38 @@ iframe.instagram-media + script + :not([id]) {
 }
 /* Title pages and posts
 /* ---------------------------------------------------------- */
-.gh-canvas h1 {
-  font-size: clamp(3.2rem, 5vw, 5.2rem);
+h1 {
+  font-size: calc(1.8rem + 1.95vw);
+  line-height: calc(1.8rem + 1.95vw);
   font-weight: 700;
-  letter-spacing: -0.015em;
 }
 .gh-content h2 {
-  margin: 1em 0 0.5em 0;
-  font-size: 2.3rem;
-  line-height: 3rem;
-  font-weight: 700;
-}
-@media (max-width: 600px) {
-  .gh-content h2 {
-    font-size: 2rem;
-  }
+  font-size: calc(1.72rem + 1.17vw);
+  line-height: calc(1.72rem + 1.17vw);
 }
 .gh-content h3 {
-  margin: 1.5em 0 0.5em 0;
-  line-height: 3rem;
-  font-size: 2rem;
-  font-weight: 600;
-}
-@media (max-width: 600px) {
-  .gh-content h3 {
-    font-size: 1.7rem;
-  }
+  font-size: calc(1.69rem + 0.78vw);
+  line-height: calc(1.69rem + 0.78vw);
 }
 .gh-content h4 {
-  margin: 1.8em 0 0.5em 0;
-  font-size: 1.7rem;
-}
-@media (max-width: 600px) {
-  .gh-content h4 {
-    font-size: 1.4rem;
-  }
+  font-size: calc(1.66rem + 0.39vw);
+  line-height: calc(1.66rem + 0.39vw);
 }
 .gh-content h5 {
-  margin: 1.5em 0 0.5em 0;
-  font-size: 2rem;
+  font-size: calc(1.63rem);
+  line-height: calc(1.63rem);
 }
 .gh-content h6 {
-  margin: 1.5em 0 0.5em 0;
-  font-size: 1.8rem;
+  font-size: calc(1.46rem);
+  line-height: calc(1.46rem);
 }
 .gh-content p {
-  font-size: 1.2rem;
-  margin-top: 0;
+  font-size: calc(1rem + 0.2vw);
+  line-height: calc(1.5rem + 0.2vw);
+}
+.kg-card p {
+  font-size: calc(1rem + 0.2vw) !important;
+  line-height: calc(1.5rem + 0.2vw);
 }
 .hover\:bg-blue-600:hover {
   --tw-bg-opacity: 1;
