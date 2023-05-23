@@ -3,7 +3,7 @@
 into the {body} tag of the default.hbs template --}}
 {{#post}}
 {{!-- Everything inside the #post block pulls data from the post --}}
-<article class="w-full bg-white rounded-3xl">   
+<article class="w-full bg-white rounded-3xl mb-6">   
     <div class=" {{#match @custom.post_image_style "Small"}} pt-6 {{/match}}">
         <figure>
             <img class="{{#match @custom.post_image_style "Full"}}w-full rounded-t-3xl{{/match}}{{#match @custom.post_image_style "Hidden"}} hidden{{/match}}{{#match @custom.post_image_style "Small"}} w-1/2 mx-auto{{/match}} sm:h-96 lg:h-[500px] object-cover"
@@ -23,7 +23,7 @@ into the {body} tag of the default.hbs template --}}
         <div class="pb-8 lg:p-8">
             <article class="m-auto">
                 <header class="gh-canvas">
-                    <div class="flex items-center mt-3">
+                    <div class="flex items-center my-3">
                     {{#primary_tag}}
                         <span class="text-xl font-bold" style="color:{{@site.accent_color}};">{{name}} </span>
                     {{/primary_tag}}
