@@ -41,13 +41,22 @@
   "contributors": "https://github.com",
   "devDependencies": {
     "autoprefixer": "^10.4.14",
+    "cssnano": "^6.0.1",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-declare": "^0.3.0",
+    "gulp-define-module": "^0.1.5",
+    "gulp-handlebars": "^5.0.2",
+    "gulp-postcss": "^9.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-wrap": "^0.15.0",
+    "gulp-wrap-amd": "^0.5.0",
+    "handlebars": "^4.7.7",
     "postcss": "^8.4.23",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.1.0",
     "tailwindcss": "^3.3.2"
-  },
-  "dependencies": {
-    "handlebars": "^4.7.7"
   },
   "config": {
     "posts_per_page": 1,
