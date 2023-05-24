@@ -16,9 +16,9 @@
                     loading="lazy"
                 />
                 <div class="p-8">
-                    {{#primary_tag}}
-                        <span class="text-xs sm:text-sm font-bold" style="color:{{@site.accent_color}};">{{name}}</span>
-                    {{/primary_tag}}
+                    
+                    <span class=" flex text-xs sm:text-sm font-bold text-black dark:text-white">{{#if featured}}<span class="flex items-center text-red-500">{{> "icons/fire"}}&nbsp;{{t "Featured"}}</span>&nbsp;-&nbsp;{{/if}}{{#primary_tag}}{{name}}{{/primary_tag}} </span>
+                    
                     <h3 class="font-heading text-2xl text-slate-800 dark:text-white hover:text-slate-600 group-hover:underline font-black">
                         {{#unless access}}
                             {{^has visibility="public"}}
