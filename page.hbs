@@ -1,7 +1,7 @@
 {{!< default}}
 
 {{#post}}
-    <article class="w-full bg-white rounded-3xl">   
+    <article class="w-full bg-white dark:bg-slate-800 dark:text-white rounded-3xl">   
         <div class="{{#match @custom.post_image_style "Small"}} pt-6 {{/match}}">
             {{#if feature_image}}
             <figure>
@@ -23,7 +23,7 @@
             {{/if}}
             <div class="pb-8 lg:p-8">
                 <section class="m-auto px-2 xl:w-2/3">
-                    <h1 class="font-heading py-6 sm:text-4xl lg:text-6xl text-slate-900 hover:text-slate-700 font-black">
+                    <h1 class="font-heading py-6 sm:text-4xl lg:text-6xl text-slate-900 dark:text-white hover:text-slate-700 font-black">
                         {{title}}
                     </h1>
                     <div class="post-content">

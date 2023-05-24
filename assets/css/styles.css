@@ -62,11 +62,6 @@ headings, text, images and lists. We deal with cards lower down. */
 /* [id] represents all headings h1-h6, reset all margins */
 .gh-content > [id] {
   margin: 0;
-  color: var(--color-darkgrey);
-}
-
-.has-serif-title .gh-content > [id] {
-  font-family: var(--font-serif);
 }
 
 /* Add back a top margin to all headings, unless a heading
@@ -76,9 +71,9 @@ is the very first element in the post content */
 }
 
 /* Add a small margin between a heading and anything after it */
-/* .gh-content > [id] + * {
-  margin-top: 1.5rem !important;
-} */
+.gh-content > [id] + * {
+  margin-top: 1rem !important;
+}
 
 /* A larger margin before/after HRs and blockquotes */
 .gh-content > hr,
@@ -93,7 +88,6 @@ is the very first element in the post content */
 
 /* Now the content typography styles */
 .gh-content a {
-  color: var(--ghost-accent-color);
   text-decoration: underline;
   word-break: break-word;
 }
@@ -103,7 +97,6 @@ is the very first element in the post content */
 .gh-content > ul,
 .gh-content > dl,
 .gh-content > p {
-  font-family: var(--font-serif);
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 1.6em;
@@ -113,7 +106,6 @@ is the very first element in the post content */
 .gh-content .kg-toggle-card .kg-toggle-content > ol,
 .gh-content .kg-toggle-card .kg-toggle-content > ul,
 .gh-content .kg-toggle-card .kg-toggle-content > p {
-  font-family: var(--font-serif);
   font-weight: 400;
   font-size: 1.9rem;
   line-height: 1.6em;
@@ -122,7 +114,7 @@ is the very first element in the post content */
 .gh-content .kg-product-card .kg-product-card-description > p,
 .gh-content .kg-product-card .kg-product-card-description > ol,
 .gh-content .kg-product-card .kg-product-card-description > ul {
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   line-height: 1.6em;
 }
 
@@ -284,7 +276,7 @@ except for when immediately preceeded by a heading */
 /* Captions */
 figcaption {
   text-align: center;
-  color: rgba(0, 0, 0, 0.5);
+  color: #000;
   /* font-size: 1.3rem;
   line-height: 1.4em; */
 }
@@ -434,35 +426,40 @@ iframe.instagram-media + script + :not([id]) {
 
 /* Title pages and posts
 /* ---------------------------------------------------------- */
-<<<<<<< HEAD h1 {
+h1 {
   font-size: calc(1.8rem + 1.95vw);
   line-height: calc(1.8rem + 1.95vw);
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .gh-content h2 {
   font-size: calc(1.72rem + 1.17vw);
   line-height: calc(1.72rem + 1.17vw);
+  font-weight: 600;
 }
 
 .gh-content h3 {
   font-size: calc(1.69rem + 0.78vw);
   line-height: calc(1.69rem + 0.78vw);
+  font-weight: 600;
 }
 
 .gh-content h4 {
   font-size: calc(1.66rem + 0.39vw);
   line-height: calc(1.66rem + 0.39vw);
+  font-weight: 600;
 }
 
 .gh-content h5 {
   font-size: calc(1.63rem);
   line-height: calc(1.63rem);
+  font-weight: 600;
 }
 
 .gh-content h6 {
   font-size: calc(1.46rem);
   line-height: calc(1.46rem);
+  font-weight: 600;
 }
 .gh-content p {
   font-size: calc(1rem + 0.2vw);
@@ -472,4 +469,36 @@ iframe.instagram-media + script + :not([id]) {
 .kg-card p {
   font-size: calc(1rem + 0.2vw) !important;
   line-height: calc(1.5rem + 0.2vw);
+}
+
+/* Bookmarks
+/* ---------------------------------------------------------- */
+.kg-bookmark-title {
+  font-size: 1rem !important;
+  line-height: 1.4em;
+  font-weight: 600;
+}
+
+.kg-bookmark-description {
+  font-size: 1rem !important;
+  line-height: 1.5em;
+}
+
+.kg-bookmark-metadata {
+  font-size: 1rem !important;
+}
+
+/* header section */
+.kg-header-card-header,
+.kg-header-card-subheader {
+  color: #15171a !important;
+}
+
+.kg-header-card-button {
+  background-color: #15171a !important;
+  color: #e1eaef !important;
+}
+
+html.dark figcaption {
+  color: #fff;
 }
