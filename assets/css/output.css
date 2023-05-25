@@ -509,26 +509,14 @@ video {
     max-width: 1536px;
   }
 }
-.visible {
-  visibility: visible;
-}
-.static {
-  position: static;
-}
 .fixed {
   position: fixed;
 }
 .absolute {
   position: absolute;
 }
-.\!relative {
-  position: relative !important;
-}
 .relative {
   position: relative;
-}
-.sticky {
-  position: sticky;
 }
 .inset-0 {
   inset: 0px;
@@ -643,9 +631,6 @@ video {
 .table {
   display: table;
 }
-.contents {
-  display: contents;
-}
 .hidden {
   display: none;
 }
@@ -729,11 +714,6 @@ video {
 }
 .overflow-y-auto {
   overflow-y: auto;
-}
-.truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .rounded-3xl {
   border-radius: 1.5rem;
@@ -924,9 +904,6 @@ video {
 .uppercase {
   text-transform: uppercase;
 }
-.lowercase {
-  text-transform: lowercase;
-}
 .italic {
   font-style: italic;
 }
@@ -975,9 +952,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-.underline {
-  text-decoration-line: underline;
 }
 .placeholder-gray-500::-moz-placeholder {
   --tw-placeholder-opacity: 1;
