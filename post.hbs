@@ -14,24 +14,24 @@ into the {body} tag of the default.hbs template --}}
                                 sizes="(max-width: 1000px) 400px, 800px"
                                 src="{{img_url feature_image size="m"}}"
                                 alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                                loading="lazy"
+                                {{!-- loading="lazy" --}}
                             />
             {{#if feature_image_caption}}
-                <figcaption class="italic text-black dark:text-white {{#match @custom.post_image_style "Full"}}text-right pr-3 {{/match}} text-xs sm:text-[12px] {{#match @custom.post_image_style "Small"}} text-center {{/match}}">{{feature_image_caption}}</figcaption>
+                <figcaption class="italic text-black dark:text-white {{#match @custom.post_image_style "Full"}}text-right pr-3 {{/match}} {{#match @custom.post_image_style "Hidden"}} hidden{{/match}} text-xs sm:text-[12px] {{#match @custom.post_image_style "Small"}} text-center {{/match}}">{{feature_image_caption}}</figcaption>
             {{/if}}
         </figure>
         <div class="pb-8 lg:p-8">
             <article class="m-auto">
                 <header class="gh-canvas">
                     <div class="flex items-center my-3">
-                    {{#primary_tag}}
-                        <span class="text-xl font-bold text-black dark:text-white">{{name}} </span>
-                    {{/primary_tag}}
-                        <span class="text-sm text-black dark:text-white italic">
-                            <span class="mx-1">
+                        {{#primary_tag}}
+                        <span class="text-sm text-black dark:text-white">{{name}} 
+                        </span>
+                         <span class="mx-1">
                                 &bull; 
-                            </span>
-                            
+                        </span>
+                        {{/primary_tag}}
+                        <span class="text-sm text-black dark:text-white italic">
                             <time datetime="{{date format="YYYY-MM-DD"}}">
                                 {{date}}
                             </time>
@@ -64,7 +64,7 @@ into the {body} tag of the default.hbs template --}}
                 <section class="gh-content gh-canvas">
                     {{content}}
                     {{#primary_author}}
-                        <p class="mt-2 italic text-slate-500 dark:text-white">Author: <a href="{{url}}">{{name}}</a></p>
+                        <p class="mt-2 italic text-slate-500 dark:text-white">{{t "Published by:"}} <a href="{{url}}">{{name}}</a></p>
                     {{/primary_author}}
                 </section>
                 {{#if comments}}

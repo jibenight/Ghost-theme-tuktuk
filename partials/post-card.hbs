@@ -46,11 +46,11 @@
                         &bull; 
                         {{#if reading_time}}
                             <span>
-                                {{reading_time}}
+                                {{reading_time minute="1 minute de lecture" minutes="% minutes de lecture"}}
                             </span>
                         {{/if}}
                         {{#if @site.comments_enabled}}
-                            {{comment_count}}
+                            {{t "comment_count"}}
                         {{/if}}
                         
                     </p>
@@ -100,7 +100,7 @@
                                     {{/if}}
                                 </p>
                                 <a class="group inline-block mb-4" href="{{url}}">
-                                    <h3 class="font-heading text-2xl text-slate-900 dark:text-white  hover:opacity-75 group-hover:underline font-black">
+                                    <h3 class="font-heading text-lg text-slate-900 dark:text-white  hover:opacity-75 group-hover:underline font-black">
                                         {{#unless access}}
                                             {{^has visibility="public"}}
                                                 {{#unless feature_image}}

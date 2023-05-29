@@ -48,9 +48,7 @@ function runPostcss(cb) {
 // Tâche pour le live reload
 function serve(cb) {
   browserSync.init({
-    server: {
-      baseDir: './',
-    },
+    proxy: 'localhost:2368',
   });
 
   // Ajoutez ici les fichiers à surveiller pour le rechargement

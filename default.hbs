@@ -18,13 +18,14 @@
           <div class="w-auto">
             <div class="flex flex-wrap items-center">
               <div class="w-auto">
-                <a href="{{@site.url}}">
+                <a href="{{@site.url}}" class="hidden lg:block">
                     {{#if @site.logo}}
                         <img class="w-16" src="{{@site.logo}}" alt="{{@site.title}}">
                     {{else}}
                         {{@site.title}}
                     {{/if}}
                 </a>
+                <button class="lg:hidden block w-full py-2.5 text-6xl dark:text-slate-200" aria-label="icon for search" data-ghost-search>{{> "icons/search"}}</button>
                 </div>
             </div>
           </div>
@@ -42,16 +43,33 @@
                   <div class="w-full flex md:w-auto p-2">
                     <button class="block w-full py-2.5 text-6xl dark:text-slate-200" aria-label="icon for search" data-ghost-search>{{> "icons/search"}}</button>
                   </div>
-                  <div class="w-full md:w-auto p-2">
-                    <a class="block w-full px-4 py-2.5 text-xl text-center text-slate-900 font-bold bg-slate-100 hover:bg-slate-200 focus:ring-4 focus:ring-slate-200 rounded-full" href="#/portal/signin" data-portal="signin">
-                      {{t "Sign in"}}
-                    </a>
-                  </div>
-                  <div class="w-full md:w-auto p-2">
-                    <a class="block w-full px-4 py-2.5 text-xl text-center text-white font-bold rounded-full hover:opacity-75" style='background-color:{{@site.accent_color}};' href="#/portal/account" data-portal="account">
-                      {{t "Account"}}
-                    </a>
-                  </div>
+                  {{#unless @member}}
+                    {{#unless @site.members_invite_only}}
+                      <div class="w-full md:w-auto p-2">
+                        <a class="block w-full px-4 py-2.5 text-lg xl:text-xl text-center text-slate-900 font-bold bg-slate-100 hover:bg-slate-200 focus:ring-4 focus:ring-slate-200 rounded-full" href="#/portal/signin" data-portal="signin">
+                          {{t "Sign in"}}
+                        </a>
+                      </div>
+                      <div class="w-full md:w-auto p-2">
+                        <a class="block w-full px-4 py-2.5 text-lg xl:text-xl text-center text-slate-900 font-bold bg-slate-100 hover:bg-slate-200 focus:ring-4 focus:ring-slate-200 rounded-full" href="#/portal/signup" data-portal="signup">
+                          {{t "Subscribe"}}
+                        </a>
+                      </div>
+                    {{else}}
+                      <div class="w-full md:w-auto p-2">
+                          <a class="block w-full px-4 py-2.5 text-lg xl:text-xl text-center text-slate-900 font-bold bg-slate-100 hover:bg-slate-200 focus:ring-4 focus:ring-slate-200 rounded-full" href="#/portal/signin" data-portal="signin">
+                            {{t "Sign in"}}
+                          </a>
+                      </div>
+                    {{/unless}}
+                    {{else}}
+                      <div class="w-full md:w-auto p-2">
+                          <a class="block w-full px-4 py-2.5 text-lg xl:text-xl text-center text-white font-bold rounded-full hover:opacity-75" style='background-color:{{@site.accent_color}};' href="#/portal/account" data-portal="account">
+                            {{t "Account"}}
+                          </a>
+                      </div>
+                  {{/unless}}
+
                 </div>
               </div>
               <div class="w-auto lg:hidden"><a class="inline-block" href="#" aria-label=" burger menu icon">
@@ -91,16 +109,32 @@
               </div>
               <div class="flex flex-col justify-end w-full pb-8">
                 <div class="flex flex-wrap -m-2">
-                  <div class="w-full p-2">
-                    <a class="block w-full px-4 py-2.5 text-sm text-center text-slate-900 font-bold bg-white hover:bg-slate-50 focus:ring-4 focus:ring-slate-200 border rounded-full" href="#/portal/signin" data-portal="account">
-                      {{t "Sign in"}}
-                    </a>
-                  </div>
-                  <div class="w-full p-2">
-                    <a class="block w-full px-4 py-2.5 text-sm text-center text-white font-bold bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-200 rounded-full" href="#/portal/account" data-portal="account">
-                      {{t "Account"}}
-                    </a>
-                  </div>
+                  {{#unless @member}}
+                    {{#unless @site.members_invite_only}}
+                      <div class="w-full md:w-auto p-2">
+                        <a class="block w-full px-4 py-2.5 text-lg xl:text-xl text-center text-slate-900 font-bold bg-slate-100 hover:bg-slate-200 focus:ring-4 focus:ring-slate-200 rounded-full" href="#/portal/signin" data-portal="signin">
+                          {{t "Sign in"}}
+                        </a>
+                      </div>
+                      <div class="w-full md:w-auto p-2">
+                        <a class="block w-full px-4 py-2.5 text-lg xl:text-xl text-center text-slate-900 font-bold bg-slate-100 hover:bg-slate-200 focus:ring-4 focus:ring-slate-200 rounded-full" href="#/portal/signup" data-portal="signup">
+                          {{t "Subscribe"}}
+                        </a>
+                      </div>
+                    {{else}}
+                      <div class="w-full md:w-auto p-2">
+                          <a class="block w-full px-4 py-2.5 text-lg xl:text-xl text-center text-slate-900 font-bold bg-slate-100 hover:bg-slate-200 focus:ring-4 focus:ring-slate-200 rounded-full" href="#/portal/signin" data-portal="signin">
+                            {{t "Sign in"}}
+                          </a>
+                      </div>
+                    {{/unless}}
+                    {{else}}
+                      <div class="w-full md:w-auto p-2">
+                          <a class="block w-full px-4 py-2.5 text-lg xl:text-xl text-center text-white font-bold rounded-full hover:opacity-75" style='background-color:{{@site.accent_color}};' href="#/portal/account" data-portal="account">
+                            {{t "Account"}}
+                          </a>
+                      </div>
+                  {{/unless}}
                 </div>
               </div>
             </div>

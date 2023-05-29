@@ -509,14 +509,26 @@ video {
     max-width: 1536px;
   }
 }
+.visible {
+  visibility: visible;
+}
+.static {
+  position: static;
+}
 .fixed {
   position: fixed;
 }
 .absolute {
   position: absolute;
 }
+.\!relative {
+  position: relative !important;
+}
 .relative {
   position: relative;
+}
+.sticky {
+  position: sticky;
 }
 .inset-0 {
   inset: 0px;
@@ -625,6 +637,9 @@ video {
 .inline-block {
   display: inline-block;
 }
+.inline {
+  display: inline;
+}
 .flex {
   display: flex;
 }
@@ -714,6 +729,11 @@ video {
 }
 .overflow-y-auto {
   overflow-y: auto;
+}
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .rounded-3xl {
   border-radius: 1.5rem;
@@ -904,6 +924,9 @@ video {
 .uppercase {
   text-transform: uppercase;
 }
+.lowercase {
+  text-transform: lowercase;
+}
 .italic {
   font-style: italic;
 }
@@ -953,6 +976,9 @@ video {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+.underline {
+  text-decoration-line: underline;
+}
 .placeholder-gray-500::-moz-placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(107 114 128 / var(--tw-placeholder-opacity));
@@ -973,6 +999,9 @@ video {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+.outline {
+  outline-style: solid;
+}
 .blur {
   --tw-blur: blur(8px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -983,6 +1012,7 @@ video {
 @font-face {
   font-family: 'nunito';
   src: url(../fonts/nunito/Nunito-VariableFont_wght.ttf);
+  font-display: swap;
 }
 /* Content grid
 /* ---------------------------------------------------------- */
@@ -1037,7 +1067,7 @@ is the very first element in the post content */
 }
 /* Add a small margin between a heading and anything after it */
 .gh-content > [id] + * {
-  margin-top: 1rem !important;
+  margin-top: 0.4rem !important;
 }
 /* A larger margin before/after HRs and blockquotes */
 .gh-content > hr,
@@ -1060,8 +1090,19 @@ is the very first element in the post content */
 .gh-content > dl,
 .gh-content > p {
   font-weight: 400;
-  font-size: 1.5rem;
-  line-height: 1.6em;
+  font-size: calc(1rem + 0.2vw);
+  line-height: calc(1.5rem + 0.2vw);
+}
+.gh-content ol {
+  list-style: decimal;
+}
+.gh-content ul {
+  list-style: disc;
+}
+.gh-content li {
+  padding-left: 0.3em;
+  margin-bottom: 0.3em;
+  font-size: calc(1rem + 0.2vw);
 }
 .gh-content .kg-callout-card .kg-callout-text,
 .gh-content .kg-toggle-card .kg-toggle-content > ol,
@@ -1381,10 +1422,10 @@ h1 {
   font-size: calc(1rem + 0.2vw);
   line-height: calc(1.5rem + 0.2vw);
 }
-.kg-card p {
+/* .kg-card p {
   font-size: calc(1rem + 0.2vw) !important;
   line-height: calc(1.5rem + 0.2vw);
-}
+} */
 /* Bookmarks
 /* ---------------------------------------------------------- */
 .kg-bookmark-title {
@@ -1563,6 +1604,11 @@ html.dark figcaption {
     padding-right: 4rem;
   }
 
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
   .md\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
@@ -1641,6 +1687,11 @@ html.dark figcaption {
 
   .xl\:w-2\/3 {
     width: 66.666667%;
+  }
+
+  .xl\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 @media (min-width: 1536px) {

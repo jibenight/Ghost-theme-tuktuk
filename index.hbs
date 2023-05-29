@@ -53,8 +53,8 @@
                     </div>
                 {{/if}}
                 {{!-- featured post --}}
-                {{#get "posts" filter="featured:true" include="tags" limit="1" order="published_at desc" as |posts|}}
-                    {{#foreach posts}}
+                {{#get "posts" filter="featured:true" include="tags" limit="1" order="published_at desc" as |postsfeat|}}
+                    {{#foreach postsfeat}}
                         {{> "post-featured"}}
                     {{/foreach}}
                 {{/get}}
