@@ -1,40 +1,38 @@
-// Burger menus
-document.addEventListener('DOMContentLoaded', function () {
-  // open
-  const burger = document.querySelectorAll('.navbar-burger');
-  const menu = document.querySelectorAll('.navbar-menu');
+document.addEventListener('DOMContentLoaded', () => {
+  const burgerButtons = document.querySelectorAll('.navbar-burger');
+  const menus = document.querySelectorAll('.navbar-menu');
+  const closeButtons = document.querySelectorAll('.navbar-close');
+  const backdrops = document.querySelectorAll('.navbar-backdrop');
 
-  if (burger.length && menu.length) {
-    for (var i = 0; i < burger.length; i++) {
-      burger[i].addEventListener('click', function () {
-        for (var j = 0; j < menu.length; j++) {
-          menu[j].classList.toggle('hidden');
-        }
+  if (burgerButtons.length && menus.length) {
+    burgerButtons.forEach(burger => {
+      burger.addEventListener('click', () => {
+        menus.forEach(menu => {
+          menu.classList.remove('hidden');
+          menu.classList.remove('animate-slideOut');
+          menu.classList.add('animate-slideIn');
+        });
       });
-    }
+    });
   }
 
-  // close
-  const close = document.querySelectorAll('.navbar-close');
-  const backdrop = document.querySelectorAll('.navbar-backdrop');
-
-  if (close.length) {
-    for (var i = 0; i < close.length; i++) {
-      close[i].addEventListener('click', function () {
-        for (var j = 0; j < menu.length; j++) {
-          menu[j].classList.toggle('hidden');
-        }
+  if (closeButtons.length) {
+    closeButtons.forEach(close => {
+      close.addEventListener('click', () => {
+        menus.forEach(menu => {
+          menu.classList.add('hidden');
+        });
       });
-    }
+    });
   }
 
-  if (backdrop.length) {
-    for (var i = 0; i < backdrop.length; i++) {
-      backdrop[i].addEventListener('click', function () {
-        for (var j = 0; j < menu.length; j++) {
-          menu[j].classList.toggle('hidden');
-        }
+  if (backdrops.length) {
+    backdrops.forEach(backdrop => {
+      backdrop.addEventListener('click', () => {
+        menus.forEach(menu => {
+          menu.classList.add('hidden');
+        });
       });
-    }
+    });
   }
 });
