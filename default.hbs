@@ -27,13 +27,6 @@
               </div>
             </div>
           </div>
-          {{!-- <div class="w-auto {{#match @custom.navigation_layout "Logo in the middle"}}order-first {{/match}}">
-            <div class="flex flex-wrap items-center">
-              <div class="w-auto hidden lg:block">
-                 {{navigation}}
-              </div>
-            </div>
-          </div> --}}
           <div class="w-auto">
             <div class="flex flex-wrap items-center">
               <div class="w-auto dark:mr-4">
@@ -117,7 +110,7 @@
         <footer class="container mx-auto mt-6">
             <div class="p-4 mb-4 bg-slate-100 dark:bg-slate-800  rounded-3xl">
                 <div class="mx-auto ">
-                    <div class="flex flex-col lg:flex-row flex-wrap items-center justify-between ">
+                    <div class="flex flex-col lg:flex-row flex-wrap items-center justify-center lg:justify-between ">
                         <div class="">
                             <a href="{{@site.url}}">
                               {{#if @site.logo}}
@@ -142,10 +135,6 @@
                     </div>
                 </div>
             </div>
-            {{!-- <p class="text-center font-bold">
-                <a class="text-blue-500 hover:text-blue-600" href="#">Mentions legals</a> |
-                <a class="text-blue-500 hover:text-blue-600" href="#">Conditions d'utilisations</a>
-            </p> --}}
             <div>
               <p class="text-sm text-center mb-12 mt-12">
                 <a class="text-black dark:text-white" href="https://ghost.org/" target="_blank" rel="noopener">

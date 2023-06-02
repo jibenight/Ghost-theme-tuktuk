@@ -40,31 +40,31 @@
 <main id="site-main" class="container mx-auto">
         <div class="py-16 px-8 bg-slate-100  dark:bg-slate-800 rounded-3xl">
             <div class="max-w-7xl mx-auto">
-                {{!-- intro --}}
-                {{#if @custom.second_title}}
-                    <div class="mb-12 md:max-w-4xl mx-auto text-center">
-                        {{!-- <span class="inline-block mb-4 text-sm font-bold uppercase tracking-widest" style='color:{{@site.accent_color}};'>
-                            Blog
-                        </span> --}}
-                        <h2 class="font-heading mb-6 text-4xl md:text-5xl lg:text-6xl text-slate-800 dark:text-slate-300 font-black tracking-tight">
-                            {{@custom.second_title}}
-                        </h2>
-                        
-                    </div>
-                {{/if}}
+
                 {{!-- featured post --}}
                 {{#get "posts" filter="featured:true" include="tags" limit="1" order="published_at desc" as |postsfeat|}}
                     {{#foreach postsfeat}}
                         {{> "post-featured"}}
                     {{/foreach}}
                 {{/get}}
+
+                {{!-- intro --}}
+                {{#if @custom.second_title}}
+                    <div class="mb-12 md:max-w-4xl mx-auto text-center">
+                        <h2 class="font-heading mb-6 text-4xl md:text-5xl lg:text-6xl text-slate-800 dark:text-slate-300 font-black tracking-tight">
+                            {{@custom.second_title}}
+                        </h2>
+                        
+                    </div>
+                {{/if}}
+
                 {{!-- posts --}}
                 <div class="flex flex-wrap {{#match @custom.feed_layout "List"}} flex-col {{/match}} -m-4 mb-6 post-feed">
                     {{#foreach posts}}
                         {{> "post-card"}}
                     {{/foreach}}
                 </div>
-                {{!-- {{pagination}} --}}
+
             </div>
         </div>
         {{!-- newsletter --}}
