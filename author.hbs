@@ -65,7 +65,7 @@
                 <h2 class="italic dark:text-slate-200 text-center font-heading font-bold text-2xl sm:text-4xl">{{t "A collection of"}} {{plural ../pagination.total empty='zero posts' singular='% post' plural='% '}}{{t "posts"}}</h2>
             </div>
         {{/author}}
-        <div class="flex flex-wrap -m-4 mb-6">
+        <div class="flex flex-wrap -m-4 mb-6 post-feed">
             {{#foreach posts}}
                 {{> "post-card"}}
             {{/foreach}}
