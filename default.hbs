@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html lang="{{@site.locale}}"{{#match @custom.color_scheme "Dark"}} class="dark"{{else match @custom.color_scheme "Auto"}} class="auto-color"{{/match}}>
+<html lang="{{@site.locale}}" id="html-root">
 <head>
     <title>{{meta_title}}</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      const theme = localStorage.getItem('theme');
+      const root = document.getElementById('html-root');
+      if (theme === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+      } else if (theme === 'light') {
+        root.setAttribute('data-theme', 'light');
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        root.setAttribute('data-theme', 'dark');
+      }
+    </script>
     <link rel="stylesheet" href="{{asset "/built/css/output.min.css"}}">
     {{ghost_head}}
 </head>

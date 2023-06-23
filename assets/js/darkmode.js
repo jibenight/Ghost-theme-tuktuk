@@ -42,25 +42,22 @@ function setInitialTheme() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  setInitialTheme();
-  document
-    .getElementById('toggle-theme')
-    .addEventListener('click', function () {
-      const themeButton = document.getElementById('toggle-theme');
-      if (currentTheme === 'light') {
-        currentTheme = 'dark';
-        themeButton.innerHTML =
-          '<img src="../../partials/icons/sun.svg" alt="icon sun">';
-      } else if (currentTheme === 'dark') {
-        currentTheme = 'auto';
-        themeButton.innerHTML =
-          '<img src="../../partials/icons/auto.svg" alt="icon contrast for system mode">';
-      } else {
-        currentTheme = 'light';
-        themeButton.innerHTML =
-          '<img src="../../partials/icons/moon.svg" alt="icon moon">';
-      }
-      setTheme(currentTheme);
-    });
+setInitialTheme();
+
+document.getElementById('toggle-theme').addEventListener('click', function () {
+  const themeButton = document.getElementById('toggle-theme');
+  if (currentTheme === 'light') {
+    currentTheme = 'dark';
+    themeButton.innerHTML =
+      '<img src="../../partials/icons/sun.svg" alt="icon sun">';
+  } else if (currentTheme === 'dark') {
+    currentTheme = 'auto';
+    themeButton.innerHTML =
+      '<img src="../../partials/icons/auto.svg" alt="icon contrast for system mode">';
+  } else {
+    currentTheme = 'light';
+    themeButton.innerHTML =
+      '<img src="../../partials/icons/moon.svg" alt="icon moon">';
+  }
+  setTheme(currentTheme);
 });
