@@ -1,10 +1,7 @@
 # Tuktuk
 
 Tuktuk is a minimal theme for the Ghost blogging platform. It features a clean, elegant design that is perfect for blogging.
-<!--
-![Desktop Screenshot](./assets/screenshot-desktop.jpg)
-![Mobile Screenshot](./assets/screenshot-mobile.jpg)
--->
+
 Live demo available [here](https://demo-ghost.jean-nguyen.dev).
 
 ## Table of Contents
@@ -32,16 +29,22 @@ git clone https://github.com/jibenight/Ghost-theme-tuktuk.git
 Then, restart your Ghost instance. You can select the Tuktuk theme in your Ghost admin panel.
 
 ## Building
-The theme comes with a few NPM scripts for development and production builds.
+The theme uses gulp for task automation, postcss for CSS processing, and BrowserSync for live reloading. There are several gulp tasks defined in the gulpfile, including minification of CSS and JavaScript files, running postcss, and copying font files.
 
-### Development
+To start the development server with live reload, run the following command:
+
 ```shell
-npm run dev
+gulp run
 ```
 
+This command will minify CSS and JS files, copy fonts, run postcss, and start the live server.
+
 ### Production
+For production, run the minification tasks without starting the live server.
+
 ```shell
-npm run build
+gulp minifyCss
+gulp minifyJs
 ```
 
 ## Customization
