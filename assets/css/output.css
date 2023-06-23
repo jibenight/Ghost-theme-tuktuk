@@ -1656,10 +1656,6 @@ html.dark figcaption {
     justify-content: space-between;
   }
 
-  .lg\:p-2 {
-    padding: 0.5rem;
-  }
-
   .lg\:p-4 {
     padding: 1rem;
   }
@@ -1694,10 +1690,14 @@ html.dark figcaption {
     line-height: 1.75rem;
   }
 }
-@media (min-width: 1300px) {
+@media (min-width: 1500px) {
 
-  .min-\[1300px\]\:flex-row {
+  .min-\[1500px\]\:flex-row {
     flex-direction: row;
+  }
+
+  .min-\[1500px\]\:p-2 {
+    padding: 0.5rem;
   }
 }
 @media (min-width: 1536px) {
