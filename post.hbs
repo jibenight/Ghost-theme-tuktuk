@@ -23,7 +23,7 @@ into the {body} tag of the default.hbs template --}}
         <div class="pb-8 lg:p-8">
             <article class="m-auto">
                 <header class="gh-canvas">
-                    <div class="flex items-center my-3">
+                    <div class="flex items-center mt-5">
                         {{#primary_tag}}
                         <span class="text-sm text-black dark:text-white">{{name}} 
                         </span>
@@ -40,17 +40,15 @@ into the {body} tag of the default.hbs template --}}
                             </span>
                             {{#if reading_time}}
                                 <span class="">
-                                    {{reading_time}}
+                                    {{reading_time minute="1 minute" minutes="% minutes"}}
                                 </span>
                             {{/if}}
                             {{#if @site.comments_enabled}}
                                 {{comment_count}}
                             {{/if}}
                         </span>
-                    </div> 
-                  
-                   
-                    <h1 class="text-slate-900 dark:text-white my-5">
+                    </div>
+                    <h1 class="text-slate-900 dark:text-white mb-1">
                         {{#unless access}}
                             {{^has visibility="public"}}
                                 {{#unless feature_image}}
@@ -60,6 +58,7 @@ into the {body} tag of the default.hbs template --}}
                         {{/unless}}
                     {{title}}
                     </h1>
+                     
                 </header>
                 <section class="gh-content gh-canvas">
                     {{content}}
