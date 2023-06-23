@@ -24,18 +24,17 @@
 {{/tag}}
 
 <div class="container mx-auto my-5">
-    <div class="py-16 px-8 bg-slate-100 dark:bg-slate-800 rounded-3xl">
+    <div class="py-16 px-2 lg:px-8 bg-slate-100 dark:bg-slate-800 rounded-3xl">
         {{#tag}} 
             <div class="mb-6">
                 <h2 class="italic text-center dark:text-slate-200 font-heading font-bold text-2xl sm:text-4xl">{{t "A collection of"}} {{plural ../pagination.total empty='zero posts' singular='% post' plural='% '}}{{t "posts"}}</h2>
             </div>
         {{/tag}}
-        <div class="flex flex-wrap -m-4 mb-6 post-feed">
-            {{#foreach posts}}
-                {{> "post-card"}}
-            {{/foreach}}
-        </div>
-        
+            <div class="flex flex-wrap -m-4 mb-6 post-feed">
+                {{#foreach posts}}
+                    {{> "post-card"}}
+                {{/foreach}}
+            </div>
     </div>
 </div>
          

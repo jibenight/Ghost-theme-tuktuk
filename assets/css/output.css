@@ -1403,17 +1403,17 @@ iframe.instagram-media + script + :not([id]) {
 /* ---------------------------------------------------------- */
 h1 {
   font-size: calc(1.3rem + 1.5vw);
-  line-height: calc(1.3rem + 1.5vw);
+  line-height: calc(1.6rem + 1.5vw);
   font-weight: 800;
 }
 .gh-content h2 {
-  font-size: calc(1.2rem + 1.2vw);
-  line-height: calc(1.2rem + 1.2vw);
+  font-size: calc(1.2em + 1.2vw);
+  line-height: calc(1.5rem + 1.2vw);
   font-weight: 600;
 }
 .gh-content h3 {
   font-size: calc(1.1rem + 0.9vw);
-  line-height: calc(1.1rem + 0.9vw);
+  line-height: calc(1.3rem + 0.9vw);
   font-weight: 600;
 }
 .gh-content h4 {
@@ -1665,6 +1665,10 @@ html.dark figcaption {
     padding: 0.5rem;
   }
 
+  .lg\:p-4 {
+    padding: 1rem;
+  }
+
   .lg\:p-8 {
     padding: 2rem;
   }
@@ -1672,6 +1676,11 @@ html.dark figcaption {
   .lg\:px-5 {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+  }
+
+  .lg\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   .lg\:text-6xl {

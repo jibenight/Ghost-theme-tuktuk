@@ -1,8 +1,8 @@
 {
-  "name": "tuktuk",
+  "name": "Tuktuk",
   "description": "Minimal theme for Ghost blogging platform",
   "demo": "https://demo-ghost.jean-nguyen.dev",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "engines": {
     "ghost": ">=5.0.0"
   },
