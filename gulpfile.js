@@ -9,31 +9,31 @@ const newer = require('gulp-newer');
 const { exec } = require('child_process');
 const browserSync = require('browser-sync').create();
 
-// Minifier pour CSS
+// Minify CSS files using PostCSS and cssnano
 function minifyCss() {
   return src('assets/css/output.css')
-    .pipe(postcss([cssnano()]))
-    .pipe(rename({ extname: '.min.css' }))
-    .pipe(dest('assets/built/css/'));
+    .pipe(postcss([cssnano()])) // Optimize and minify CSS with cssnano
+    .pipe(rename({ extname: '.min.css' })) // Rename output file with .min.css extension
+    .pipe(dest('assets/built/css/')); // Save the minified file to destination directory
 }
 
-// Minifier pour JS
+// Minify JS files using uglify
 function minifyJs() {
-  return src(['assets/js/*.js', 'assets/js/lib/*.js'])
-    .pipe(concat('all.js'))
-    .pipe(uglify())
-    .pipe(rename({ extname: '.min.js' }))
-    .pipe(dest('assets/built/js/'));
+  return src(['assets/js/*.js', 'assets/js/lib/*.js']) // Select all JS files in assets/js and assets/js/lib directories
+    .pipe(concat('all.js')) // Concatenate all JS files into one file named all.js
+    .pipe(uglify()) // Minify the JavaScript code
+    .pipe(rename({ extname: '.min.js' })) // Rename the output file with .min.js extension
+    .pipe(dest('assets/built/js/')); // Save the minified file to destination directory
 }
 
-// Copier les polices vers le dossier build uniquement si elles ne sont pas déjà présentes
+// Copy fonts to the build directory only if they don't already exist
 function copyFonts() {
-  return src('assets/fonts/**')
-    .pipe(newer('assets/built/fonts/'))
-    .pipe(dest('assets/built/fonts/'));
+  return src('assets/fonts/**') // Select all font files in assets/fonts directory
+    .pipe(newer('assets/built/fonts/')) // Pass through newer files only
+    .pipe(dest('assets/built/fonts/')); // Save the new or updated font files to the destination directory
 }
 
-// Tâche pour exécuter la commande postcss
+// Task to run postcss command
 function runPostcss(cb) {
   exec(
     'TAILWIND_MODE=watch postcss assets/css/styles.css -o assets/css/output.css --config tailwind.config.dev.js --watch',
@@ -45,23 +45,23 @@ function runPostcss(cb) {
   );
 }
 
-// Tâche pour le live reload
+// Task for live reloading using BrowserSync
 function serve(cb) {
   browserSync.init({
-    proxy: 'localhost:2368',
+    proxy: 'localhost:2368', // Setup a proxy server pointing to the local Ghost instance
   });
 
-  // Ajoutez ici les fichiers à surveiller pour le rechargement
+  // Watch for changes in CSS and hbs files for live reloading
   gulp.watch('assets/css/*.css', series(minifyCss, reload));
   gulp.watch('assets/css/*.css', series(runPostcss, minifyCss, reload));
   gulp.watch('**/*.hbs', series(minifyCss, minifyJs, reload));
 }
 
-// Tâche pour recharger le navigateur
+// Task to reload the browser
 function reload(cb) {
-  browserSync.reload();
-  cb();
+  browserSync.reload(); // Trigger a browser reload
+  cb(); // Call the callback function to signal task completion
 }
 
-// Exporter la tâche par défaut
-exports.run = series(minifyCss, minifyJs, copyFonts, runPostcss, serve);
+// Export the default task
+exports.run = series(minifyCss, minifyJs, copyFonts, runPostcss, serve); // The default task sequence

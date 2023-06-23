@@ -1649,10 +1649,6 @@ html.dark figcaption {
     flex: 1 1 0%;
   }
 
-  .lg\:flex-row {
-    flex-direction: row;
-  }
-
   .lg\:items-center {
     align-items: center;
   }
@@ -1697,6 +1693,12 @@ html.dark figcaption {
   .xl\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+}
+@media (min-width: 1300px) {
+
+  .min-\[1300px\]\:flex-row {
+    flex-direction: row;
   }
 }
 @media (min-width: 1536px) {
