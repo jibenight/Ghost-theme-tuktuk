@@ -38,7 +38,7 @@
     "url": "https://github.com/jibenight/Ghost-theme-tuktuk"
   },
   "bugs": "https://github.com/jibenight/Ghost-theme-tuktuk/issues",
-  "contributors": "https://github.com",
+  "contributors": "Alpha Linlavong",
   "devDependencies": {
     "autoprefixer": "^10.4.14",
     "browser-sync": "^2.29.3",
