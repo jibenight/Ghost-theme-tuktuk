@@ -6,7 +6,7 @@ into the {body} tag of the default.hbs template --}}
 <article class="w-full bg-white dark:bg-slate-800 dark:text-white rounded-3xl mb-6">   
     <div class=" {{#match @custom.post_image_style "Small"}} pt-6 {{/match}}">
         <figure>
-            <img class="{{#match @custom.post_image_style "Full"}}w-full rounded-t-3xl{{/match}}{{#match @custom.post_image_style "Hidden"}} hidden{{/match}}{{#match @custom.post_image_style "Small"}} w-1/2 mx-auto{{/match}} sm:h-96 lg:h-[500px] object-cover"
+            <img width="100%" height="100%" class="{{#match @custom.post_image_style "Full"}}w-full rounded-t-3xl{{/match}}{{#match @custom.post_image_style "Hidden"}} hidden{{/match}}{{#match @custom.post_image_style "Small"}} w-1/2 mx-auto{{/match}} sm:h-96 lg:h-[500px] object-cover"
                                 srcset="{{img_url feature_image size="s"}} 300w,
                                         {{img_url feature_image size="m"}} 600w,
                                         {{img_url feature_image size="l"}} 1000w,

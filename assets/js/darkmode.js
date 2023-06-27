@@ -28,17 +28,17 @@ function setInitialTheme() {
     document.documentElement.classList.add('dark');
     currentTheme = 'dark';
     themeButton.innerHTML =
-      '<img src="../../partials/icons/sun.svg" alt="icon sun">';
+      '<img width="100%" height="100%" src="../../partials/icons/sun.svg" alt="icon sun">';
   } else if (localStorage.theme === 'light') {
     document.documentElement.classList.remove('dark');
     currentTheme = 'light';
     themeButton.innerHTML =
-      '<img src="../../partials/icons/moon.svg" alt="icon moon" >';
+      '<img width="100%" height="100%" src="../../partials/icons/moon.svg" alt="icon moon" >';
   } else {
     currentTheme = 'auto';
     setTheme(currentTheme);
     themeButton.innerHTML =
-      '<img src="../../partials/icons/auto.svg"  alt="icon contrast for system mode">';
+      '<img width="100%" height="100%" src="../../partials/icons/auto.svg"  alt="icon contrast for system mode">';
   }
 }
 
@@ -49,15 +49,15 @@ document.getElementById('toggle-theme').addEventListener('click', function () {
   if (currentTheme === 'light') {
     currentTheme = 'dark';
     themeButton.innerHTML =
-      '<img src="../../partials/icons/sun.svg" alt="icon sun">';
+      '<img width="100%" height="100%" src="../../partials/icons/sun.svg" alt="icon sun">';
   } else if (currentTheme === 'dark') {
     currentTheme = 'auto';
     themeButton.innerHTML =
-      '<img src="../../partials/icons/auto.svg" alt="icon contrast for system mode">';
+      '<img width="100%" height="100%" src="../../partials/icons/auto.svg" alt="icon contrast for system mode">';
   } else {
     currentTheme = 'light';
     themeButton.innerHTML =
-      '<img src="../../partials/icons/moon.svg" alt="icon moon">';
+      '<img width="100%" height="100%" src="../../partials/icons/moon.svg" alt="icon moon">';
   }
   setTheme(currentTheme);
 });
