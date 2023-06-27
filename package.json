@@ -14,7 +14,10 @@
   "source": "default.hbs",
   "scripts": {
     "build": "postcss assets/css/styles.css -o assets/css/output.css",
-    "dev": "TAILWIND_MODE=watch postcss assets/css/styles.css -o assets/css/output.css --config tailwind.config.dev.js --watch"
+    "dev": "TAILWIND_MODE=watch postcss assets/css/styles.css -o assets/css/output.css --config tailwind.config.dev.js --watch",
+    "gulp": "gulp run",
+    "precompress": "rimraf ./temp; mkdir temp; cp -R ./* ./temp; rm -rf ./temp/node_modules; test -f tuktuk.zip && rimraf tuktuk.zip || echo 'No previous zip found'",
+    "compress": "cd temp && zip -r ../tuktuk.zip .; cd ..; rimraf ./temp"
   },
   "author": {
     "name": "Jean",
@@ -55,6 +58,7 @@
     "postcss": "^8.4.23",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.1.0",
+    "rimraf": "^5.0.1",
     "tailwindcss": "^3.3.2"
   },
   "config": {
