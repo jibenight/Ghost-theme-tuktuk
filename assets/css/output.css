@@ -572,6 +572,9 @@ video {
 .m-2 {
   margin: 0.5rem;
 }
+.m-5 {
+  margin: 1.25rem;
+}
 .m-6 {
   margin: 1.5rem;
 }
@@ -805,6 +808,9 @@ video {
 .p-2 {
   padding: 0.5rem;
 }
+.p-3 {
+  padding: 0.75rem;
+}
 .p-4 {
   padding: 1rem;
 }
@@ -813,9 +819,6 @@ video {
 }
 .p-8 {
   padding: 2rem;
-}
-.p-3 {
-  padding: 0.75rem;
 }
 .px-10 {
   padding-left: 2.5rem;
@@ -868,10 +871,6 @@ video {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
 }
 .py-6 {
   padding-top: 1.5rem;
@@ -1655,8 +1654,8 @@ html.dark figcaption {
     align-items: center;
   }
 
-  .lg\:justify-between {
-    justify-content: space-between;
+  .lg\:p-3 {
+    padding: 0.75rem;
   }
 
   .lg\:p-4 {
@@ -1691,16 +1690,6 @@ html.dark figcaption {
   .xl\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-}
-@media (min-width: 1500px) {
-
-  .min-\[1500px\]\:flex-row {
-    flex-direction: row;
-  }
-
-  .min-\[1500px\]\:p-2 {
-    padding: 0.5rem;
   }
 }
 @media (min-width: 1536px) {

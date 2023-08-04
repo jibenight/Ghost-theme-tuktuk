@@ -4,7 +4,7 @@
 <div class="container mx-auto {{#match @custom.header_style "Hidden"}}hidden{{/match}}">
     <div class="mb-8 p-8 rounded-3xl bg-slate-100 dark:bg-slate-800">
         <div class="flex flex-wrap {{#if @site.cover_image}}sm:flex-row-reverse lg:items-center{{/if}} -m-8">
-            <div class="w-full {{#if @site.cover_image}}md:w-1/2{{/if}} p-8">
+            <div class="w-full {{#if @site.cover_image}}md:w-1/2{{/if}} p-3">
                 <div class="md:max-w-lg mx-auto text-center">
                     {{#if @site.logo}}
                         <div class="w-32 mx-auto mb-4">
@@ -20,7 +20,7 @@
                 </div>
             </div>
             {{#if @site.cover_image}}
-                <div class="w-full md:w-1/2 p-3 lg:p-8 flex items-center">
+                <div class="w-full md:w-1/2 p-3 flex items-center">
                     <div class="max-w-max mx-auto md:mr-0 overflow-hidden rounded-3xl">
                         <img width="100%" height="100%" class="mx-auto"
                             srcset="{{img_url @site.cover_image size="s"}} 300w,
@@ -40,8 +40,8 @@
     
 {{!-- The main content area --}}
 <main id="site-main" class="container mx-auto">
-        <div class="py-16 px-2 lg:p-8 bg-slate-100  dark:bg-slate-800 rounded-3xl">
-            <div class="max-w-7xl mx-auto">
+        <div class="py-16 px-2 lg:p-3 bg-slate-100  dark:bg-slate-800 rounded-3xl">
+            
 
                 {{!-- featured post --}}
                 {{#get "posts" filter="featured:true" include="tags" limit="1" order="published_at desc" as |postsfeat|}}
@@ -67,7 +67,7 @@
                     {{/foreach}}
                 </div>
 
-            </div>
+            
         </div>
         {{!-- newsletter --}}
         {{> "newsletter"}}
