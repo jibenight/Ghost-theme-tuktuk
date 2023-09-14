@@ -1,4 +1,4 @@
-# Tuktuk
+# Ghost theme Tuktuk
 
 **Tuktuk** is a minimal theme for the Ghost blogging platform.
 
@@ -31,7 +31,7 @@ Tuktuk offers a sleek and modern interface for Ghost bloggers, providing an imme
 Clone the repository or download the theme from its GitHub [repository](https://github.com/jibenight/Ghost-theme-tuktuk).
 
 ```bash
-git clone https://github.com/jibenight/Ghost-theme-tuktuk.git
+git clone git@github.com:jibenight/Ghost-theme-tuktuk.git
 ```
 
 Follow the Ghost platform's guidelines for theme installation.
