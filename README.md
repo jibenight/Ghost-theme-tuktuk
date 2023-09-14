@@ -11,7 +11,7 @@ Tuktuk offers a sleek and modern interface for Ghost bloggers, providing an imme
 - **Version**: 1.2.3
 - **Ghost Compatibility**: >=5.0.0
 - **License**: MIT
-- **Demo**: [Tuktuk Demo](https://demo-ghost.jean-nguyen.dev)
+- **Demo**: [Tuktuk Demo](https://tuktukworldtour.com)
 - **Author**: [Jean](https://jean-nguyen.dev) | contact@jean-nguyen.dev
 - **Contributors**: Alpha Linlavong
 
