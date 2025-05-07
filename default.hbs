@@ -44,7 +44,7 @@
                 <div class="w-auto dark:mr-4">
                   <div class="flex flex-wrap -m-2">
                     <div class="w-full flex md:w-auto p-2">
-                      <button class="dark:bg-slate-200 rounded-full " aria-label="icon for search" data-ghost-search>
+                      <button class="rounded-full " aria-label="icon for search" data-ghost-search>
                         <img src="./assets/icons/icon_search.webp" width="48" height="48" alt="icône de recherche rouge">
                       </button>
                     </div>
@@ -60,7 +60,7 @@
                 <div class="w-auto dark:mr-4">
                   <div class="flex flex-wrap -m-2">
                     <div class="w-full flex md:w-auto p-2">
-                      <button class="dark:bg-slate-200 rounded-full " aria-label="icon for search" data-ghost-search>
+                      <button class="rounded-full " aria-label="icon for search" data-ghost-search>
                         <img src="/assets/icons/icon_search.webp" width="48" height="48" alt="icône de recherche rouge">
                       </button>
                     </div>
@@ -70,7 +70,7 @@
                 <div class="w-auto">
                   <div class="flex flex-wrap -m-2">
                     <div class="w-full flex md:w-auto p-2">
-                      <button class="dark:bg-slate-200 rounded-full navbar-burger" aria-label="burger menu">
+                      <button class="rounded-full navbar-burger" aria-label="burger menu">
                         <img src="/assets/icons/menu.webp" width="56" height="56" alt="icône de menu bleu foncé">
                       </button>
                     </div>
@@ -169,14 +169,14 @@
                                 </button>
                                 <ul id="theme-options"
                                     class="absolute z-10 hidden mt-2 w-44 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 shadow-lg">
-                                  <li data-theme="light" class="flex items-center gap-2 px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
-                                    <img src="/assets/icons/light.svg" alt="Clair" class="w-4 h-4"> Clair
+                                  <li data-theme="light" class="flex items-center gap-2 px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 dark:text-white cursor-pointer">
+                                    <img src="/assets/icons/light.webp" alt="Clair" class="w-4 h-4"> Clair
                                   </li>
-                                  <li data-theme="dark" class="flex items-center gap-2 px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
-                                    <img src="/assets/icons/moon.svg" alt="Sombre" class="w-4 h-4"> Sombre
+                                  <li data-theme="dark" class="flex items-center gap-2 px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 dark:text-white cursor-pointer">
+                                    <img src="/assets/icons/moon.webp" alt="Sombre" class="w-4 h-4"> Sombre
                                   </li>
-                                  <li data-theme="system" class="flex items-center gap-2 px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
-                                    <img src="/assets/icons/system.svg" alt="Système" class="w-4 h-4"> Système
+                                  <li data-theme="system" class="flex items-center gap-2 px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 dark:text-white cursor-pointer">
+                                    <img src="/assets/icons/system.webp" alt="Système" class="w-4 h-4"> Système
                                   </li>
                                 </ul>
                               </div>
@@ -206,75 +206,6 @@
         $(".gh-content").fitVids();
     });
   </script>
-
-{{!-- <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const header = document.getElementById("site-header");
-    let lastScrollTime = Date.now();
-    let isHeaderVisible = true;
-    let ticking = false;
-
-    function showHeader() {
-      if (!isHeaderVisible) {
-        header.classList.remove("translate-y-neg-120");
-        isHeaderVisible = true;
-      }
-    }
-
-    function hideHeader() {
-      // Ne cache le header que s’il est en mode compact
-      if (isHeaderVisible && header.classList.contains("w-[30%]")) {
-        header.classList.add("translate-y-neg-120");
-        isHeaderVisible = false;
-      }
-    }
-
-    function adjustHeaderStyle() {
-      const isDesktop = window.innerWidth > 768;
-      const scrollTop = window.scrollY;
-
-      if (isDesktop && scrollTop > 50) {
-        header.classList.add("w-[30%]", "shadow-md", "px-4", "py-1");
-        header.classList.remove("w-full", "px-6", "py-2");
-      } else {
-        header.classList.add("w-full", "px-6", "py-2");
-        header.classList.remove("w-[30%]", "shadow-md", "px-4", "py-1");
-      }
-    }
-
-    function checkInactivity() {
-      const now = Date.now();
-      if (now - lastScrollTime > 1000) {
-        hideHeader();
-      } else {
-        requestAnimationFrame(checkInactivity);
-      }
-    }
-
-    window.addEventListener("scroll", () => {
-      lastScrollTime = Date.now();
-      showHeader();
-      adjustHeaderStyle();
-
-      if (!ticking) {
-        requestAnimationFrame(checkInactivity);
-        ticking = true;
-        setTimeout(() => {
-          ticking = false;
-        }, 1100);
-      }
-    });
-
-    window.addEventListener("resize", adjustHeaderStyle);
-
-    // Initialisation
-    showHeader();
-    adjustHeaderStyle();
-  });
-</script> --}}
-
-
-
 
   {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
   {{ghost_foot}}

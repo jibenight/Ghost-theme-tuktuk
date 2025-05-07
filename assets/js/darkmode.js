@@ -8,15 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const THEMES = {
     light: {
       name: 'Clair',
-      icon: '/assets/icons/light.svg',
+      icon: '/assets/icons/light.webp',
     },
     dark: {
       name: 'Sombre',
-      icon: '/assets/icons/moon.svg',
+      icon: '/assets/icons/moon.webp',
     },
     system: {
       name: 'Système',
-      icon: '/assets/icons/system.svg',
+      icon: '/assets/icons/system.webp',
     },
   };
 
