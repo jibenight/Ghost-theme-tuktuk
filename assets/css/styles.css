@@ -8,6 +8,14 @@
   font-display: swap;
 }
 
+/* style for header */
+.body-lock-scroll {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow-y: scroll;
+}
+
 /* Content grid
 /* ---------------------------------------------------------- */
 

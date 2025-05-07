@@ -1,63 +1,74 @@
-let currentTheme = 'auto';
+document.addEventListener('DOMContentLoaded', () => {
+  const html = document.documentElement;
+  const dropdown = document.getElementById('theme-dropdown-btn');
+  const options = document.getElementById('theme-options');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
 
-function setTheme(theme) {
-  if (theme === 'dark') {
-    document.documentElement.classList.add('dark');
-    localStorage.theme = 'dark';
-  } else if (theme === 'light') {
-    document.documentElement.classList.remove('dark');
-    localStorage.theme = 'light';
-  } else {
-    localStorage.theme = 'auto';
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.classList.add('dark');
+  const THEMES = {
+    light: {
+      name: 'Clair',
+      icon: '/assets/icons/light.svg',
+    },
+    dark: {
+      name: 'Sombre',
+      icon: '/assets/icons/moon.svg',
+    },
+    system: {
+      name: 'Système',
+      icon: '/assets/icons/system.svg',
+    },
+  };
+
+  const getSystem = () =>
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
+  const getSaved = () => localStorage.getItem('theme') || 'system';
+
+  const applyTheme = mode => {
+    const resolved = mode === 'system' ? getSystem() : mode;
+    html.classList.toggle('dark', resolved === 'dark');
+    icon.src = THEMES[mode].icon;
+    label.textContent = THEMES[mode].name;
+  };
+
+  const setTheme = mode => {
+    if (mode === 'system') {
+      localStorage.removeItem('theme');
     } else {
-      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', mode);
     }
-  }
-}
+    applyTheme(mode);
+    options.classList.add('hidden');
+    dropdown.setAttribute('aria-expanded', 'false');
+  };
 
-function setInitialTheme() {
-  const themeButton = document.getElementById('toggle-theme');
+  // Init
+  applyTheme(getSaved());
 
-  if (
-    localStorage.theme === 'dark' ||
-    (!('theme' in localStorage) &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
-    document.documentElement.classList.add('dark');
-    currentTheme = 'dark';
-    themeButton.innerHTML =
-      '<img width="100%" height="100%" src="../../partials/icons/sun.svg" alt="icon sun">';
-  } else if (localStorage.theme === 'light') {
-    document.documentElement.classList.remove('dark');
-    currentTheme = 'light';
-    themeButton.innerHTML =
-      '<img width="100%" height="100%" src="../../partials/icons/moon.svg" alt="icon moon" >';
-  } else {
-    currentTheme = 'auto';
-    setTheme(currentTheme);
-    themeButton.innerHTML =
-      '<img width="100%" height="100%" src="../../partials/icons/auto.svg"  alt="icon contrast for system mode">';
-  }
-}
+  // Toggle dropdown
+  dropdown.addEventListener('click', () => {
+    options.classList.toggle('hidden');
+    dropdown.setAttribute(
+      'aria-expanded',
+      options.classList.contains('hidden') ? 'false' : 'true'
+    );
+  });
 
-setInitialTheme();
+  // Click on options
+  options.querySelectorAll('li').forEach(option => {
+    option.addEventListener('click', () => {
+      const theme = option.getAttribute('data-theme');
+      setTheme(theme);
+    });
+  });
 
-document.getElementById('toggle-theme').addEventListener('click', function () {
-  const themeButton = document.getElementById('toggle-theme');
-  if (currentTheme === 'light') {
-    currentTheme = 'dark';
-    themeButton.innerHTML =
-      '<img width="100%" height="100%" src="../../partials/icons/sun.svg" alt="icon sun">';
-  } else if (currentTheme === 'dark') {
-    currentTheme = 'auto';
-    themeButton.innerHTML =
-      '<img width="100%" height="100%" src="../../partials/icons/auto.svg" alt="icon contrast for system mode">';
-  } else {
-    currentTheme = 'light';
-    themeButton.innerHTML =
-      '<img width="100%" height="100%" src="../../partials/icons/moon.svg" alt="icon moon">';
-  }
-  setTheme(currentTheme);
+  // Close on outside click
+  document.addEventListener('click', e => {
+    if (!dropdown.contains(e.target) && !options.contains(e.target)) {
+      options.classList.add('hidden');
+      dropdown.setAttribute('aria-expanded', 'false');
+    }
+  });
 });

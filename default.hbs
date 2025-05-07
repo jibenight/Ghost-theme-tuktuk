@@ -1,136 +1,137 @@
 <!DOCTYPE html>
-<html lang="{{@site.locale}}" id="html-root">
+<html lang="{{@site.locale}}" class="transition-colors duration-500">
 <head>
     <title>{{meta_title}}</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script>
+   <script>
+    (function () {
       const theme = localStorage.getItem('theme');
-      const root = document.getElementById('html-root');
-      if (theme === 'dark') {
-        root.setAttribute('data-theme', 'dark');
-      } else if (theme === 'light') {
-        root.setAttribute('data-theme', 'light');
-      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        root.setAttribute('data-theme', 'dark');
-      }
-    </script>
+      const system = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const mode = theme === 'dark' || (!theme && system) ? 'dark' : 'light';
+      document.documentElement.classList.toggle('dark', mode === 'dark');
+    })();
+  </script>
     <link rel="stylesheet" href="{{asset "/built/css/output.min.css"}}">
     {{ghost_head}}
 </head>
-<body class="bg-slate-200 dark:bg-slate-900 container mx-auto px-2 lg:px-5 {{#match @custom.body_font "Nunito"}} font-nunito {{/match}}">
+<body class="bg-slate-200 dark:bg-slate-900 container mx-auto {{#match @custom.body_font "Nunito"}} font-nunito {{/match}}">
+  <div class="lg:px-5">
     {{!-- The main content area --}}
-    <header class="my-5">
-      <div class="container mx-auto">
-        <div class="flex items-center justify-between px-4 py-4 bg-slate-100 dark:bg-slate-800 rounded-full">
-          {{!-- logo --}}
-          <div class="w-auto px-2">
-            <div class="flex flex-wrap items-center">
-              <div class="w-16">
-                <a href="{{@site.url}}">
+    <header id="site-header" class="z-50 mt-4 mb-4 mx-auto w-full rounded-full transition-all duration-500 ease-in-out translate-y-0 lg:sticky lg:top-4">
+        <div class="bg-slate-100 dark:bg-slate-800 rounded-full transition-all duration-500 ease-in-out">
+          <div class="flex items-center justify-between px-2 py-2 lg:px-6 lg:py-2">
+            {{!-- logo --}}
+            <div class="w-auto px-2">
+              <div class="flex flex-wrap items-center">
+                <div class="w-16">
+                  <a href="{{@site.url}}">
                     {{#if @site.logo}}
-                        <img width="100%" height="100%" src="{{@site.logo}}" alt="{{@site.title}}">
+                      <img width="100%" height="100%" src="{{@site.logo}}" alt="{{@site.title}}">
                     {{else}}
-                        {{@site.title}}
+                      {{@site.title}}
                     {{/if}}
-                </a>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-          {{#match @custom.navigation_layout "Logo in the middle"}} 
-          {{!-- search --}}
-          <div class="w-auto {{#match @custom.navigation_layout "Logo in the middle"}}order-last{{/match}}">
-            <div class="flex flex-wrap items-center">
-              <div class="w-auto dark:mr-4">
-                <div class="flex flex-wrap -m-2">
-                  <div class="w-full flex md:w-auto p-2">
-                    <button class="dark:bg-slate-200 rounded-full " aria-label="icon for search" data-ghost-search>{{> "icons/search"}}</button>
+            {{#match @custom.navigation_layout "Logo in the middle"}} 
+            {{!-- search --}}
+            <div class="w-auto order-last">
+              <div class="flex flex-wrap items-center">
+                <div class="w-auto dark:mr-4">
+                  <div class="flex flex-wrap -m-2">
+                    <div class="w-full flex md:w-auto p-2">
+                      <button class="dark:bg-slate-200 rounded-full " aria-label="icon for search" data-ghost-search>
+                        <img src="./assets/icons/icon_search.webp" width="48" height="48" alt="icône de recherche rouge">
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {{/match}}
+            {{!-- menu hamburger--}}
+            <div class="w-auto {{#match @custom.navigation_layout "Logo in the middle"}}order-first{{/match}}">
+              <div class="flex flex-wrap items-center">
+                {{#match @custom.navigation_layout "Logo in the left"}} 
+                <div class="w-auto dark:mr-4">
+                  <div class="flex flex-wrap -m-2">
+                    <div class="w-full flex md:w-auto p-2">
+                      <button class="dark:bg-slate-200 rounded-full " aria-label="icon for search" data-ghost-search>
+                        <img src="/assets/icons/icon_search.webp" width="48" height="48" alt="icône de recherche rouge">
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                {{/match}}
+                <div class="w-auto">
+                  <div class="flex flex-wrap -m-2">
+                    <div class="w-full flex md:w-auto p-2">
+                      <button class="dark:bg-slate-200 rounded-full navbar-burger" aria-label="burger menu">
+                        <img src="/assets/icons/menu.webp" width="56" height="56" alt="icône de menu bleu foncé">
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          {{/match}}
-          {{!-- menu hamburger--}}
-          <div class="w-auto {{#match @custom.navigation_layout "Logo in the middle"}}order-first{{/match}}">
-            <div class="flex flex-wrap items-center">
-              {{#match @custom.navigation_layout "Logo in the left"}} 
-              <div class="w-auto dark:mr-4">
-                <div class="flex flex-wrap -m-2">
-                  <div class="w-full flex md:w-auto p-2">
-                    <button class="dark:bg-slate-200 rounded-full " aria-label="icon for search" data-ghost-search>{{> "icons/search"}}</button>
-                  </div>
-                </div>
-              </div>
-              {{/match}}
-              <div class="w-auto">
-                <div class="flex flex-wrap -m-2">
-                  <div class="w-full flex md:w-auto p-2">
-                    <button class="dark:bg-slate-200 rounded-full navbar-burger" aria-label="burger menu">{{> "icons/menu"}}</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          
         </div>
-        <div class="hidden navbar-menu animate-slideIn fixed top-0 left-0 bottom-0 w-full lg:w-1/3 z-50">
-          <div class="navbar-backdrop fixed inset-0 bg-slate-800 dark:bg-slate-200 opacity-80"></div>
-          <nav class="relative z-10 px-9 pt-8 bg-slate-200 dark:bg-slate-900 h-full overflow-y-auto">
-            <div class="flex flex-wrap justify-between h-full">
-              <div class="w-full">
-                <div class="flex items-center justify-between -m-2">
-                  <div class="w-16 p-2">
-                    <a href="{{@site.url}}">
-                        {{#if @site.logo}}
-                            <img width="100%" height="100%" src="{{@site.logo}}" alt="{{@site.title}}">
-                        {{else}}
-                            {{@site.title}}
-                        {{/if}}
-                    </a>
-                  </div>
-                  <div class="w-auto p-2">
-                    <a class="inline-block navbar-close dark:bg-slate-200 dark:rounded-full dark:p-1" href="#">
-                     {{> "icons/close"}}
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="flex justify-center py-8 w-full">
-                {{navigation}}
-              </div>
-              <div class="flex flex-col justify-end w-full pb-8">
-                <div class="flex flex-wrap -m-2">
-                  {{#unless @member}}
-                    {{#unless @site.members_invite_only}}
-                      <div class="w-full p-2 mb-20">
-                        <a class="block w-full px-4 py-2.5 text-lg xl:text-xl text-center text-slate-900 font-bold bg-slate-100 hover:bg-slate-200 focus:ring-4 focus:ring-slate-200 rounded-full" href="#/portal/signin" data-portal="signin">
-                          {{t "Sign in"}}
-                        </a>
-                      </div>
-                    {{else}}
-                      <div class="w-full p-2">
-                          <a class="block w-full px-4 py-2.5 text-lg xl:text-xl text-center text-slate-900 font-bold bg-slate-100 hover:bg-slate-200 focus:ring-4 focus:ring-slate-200 rounded-full" href="#/portal/signin" data-portal="signin">
-                            {{t "Sign in"}}
-                          </a>
-                      </div>
-                    {{/unless}}
-                    {{else}}
-                      <div class="w-full md:w-auto p-2">
-                          <a class="block w-full px-4 py-2.5 text-lg xl:text-xl text-center text-white font-bold rounded-full hover:opacity-75" style='background-color:{{@site.accent_color}};' href="#/portal/account" data-portal="account">
-                            {{t "Account"}}
-                          </a>
-                      </div>
-                  {{/unless}}
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
     </header>
-
+    <div class="hidden navbar-menu fixed top-0 left-0 w-full h-full z-[999] bg-slate-200 dark:bg-slate-900 overflow-y-auto">
+      <div class="navbar-backdrop fixed inset-0"></div>
+        <nav class="relative z-10 px-6 pt-6">
+          <div class="flex flex-wrap justify-between h-full">
+            <div class="w-full">
+              <div class="flex items-center justify-between -m-2">
+                <div class="w-24 p-2">
+                  <a href="{{@site.url}}">
+                      {{#if @site.logo}}
+                          <img width="100%" height="100%" src="{{@site.logo}}" alt="{{@site.title}}">
+                      {{else}}
+                          {{@site.title}}
+                      {{/if}}
+                  </a>
+                </div>
+                <div class="w-auto p-2">
+                  <a class="inline-block navbar-close dark:bg-slate-200 dark:rounded-full dark:p-1" href="#">
+                    {{> "icons/close"}}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col justify-between h-[80vh]">
+            <div class="flex justify-center py-8 w-full">
+            {{navigation}}
+            </div>
+            <!-- Connexion / compte centrée en bas -->
+            <div class="flex flex-col items-center justify-end w-full pb-8">
+              <div class="w-auto max-w-md px-5">
+                {{#unless @member}}
+                  {{#unless @site.members_invite_only}}
+                    <a class="block w-full px-4 py-2.5 text-lg xl:text-xl text-center text-slate-900 font-bold bg-slate-100 hover:bg-slate-200 focus:ring-4 focus:ring-slate-200 rounded-full" href="#/portal/signin" data-portal="signin">
+                      {{t "Sign in"}}
+                    </a>
+                  {{else}}
+                    <a class="block w-full px-4 py-2.5 text-lg xl:text-xl text-center text-slate-900 font-bold bg-slate-100 hover:bg-slate-200 focus:ring-4 focus:ring-slate-200 rounded-full" href="#/portal/signin" data-portal="signin">
+                      {{t "Sign in"}}
+                    </a>
+                  {{/unless}}
+                {{else}}
+                  <a class="block w-full px-4 py-2.5 text-lg xl:text-xl text-center text-white font-bold rounded-full hover:opacity-75" style='background-color:{{@site.accent_color}};' href="#/portal/account" data-portal="account">
+                    {{t "Account"}}
+                  </a>
+                {{/unless}}
+              </div>
+            </div>
+          </div>
+        </nav>
+    </div>
     <div class="site-content">
         {{{body}}}
     </div>
@@ -155,9 +156,30 @@
 
                         <div class="w-auto p-4">
                           <div class="flex flex-wrap -m-4">
-                              <button class="w-10" id="toggle-theme" aria-label="button for change mode: dark,light or system">
-                                  {{!-- insert svg icon by js --}}
-                              </button>
+                            {{!-- Darkmode option --}}
+                              <div id="theme-switcher" class="relative inline-block">
+                                <button id="theme-dropdown-btn"
+                                        class="flex items-center gap-2 px-3 py-2 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white rounded-full border border-slate-300 dark:border-slate-700 hover:ring-2 hover:ring-slate-400 dark:hover:ring-slate-500 transition"
+                                        aria-haspopup="listbox" aria-expanded="false">
+                                  <img id="theme-icon" src="/assets/icons/system.svg" alt="Thème actuel" class="w-5 h-5">
+                                  <span id="theme-label" class="text-sm font-medium">Système</span>
+                                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-width="2" d="M19 9l-7 7-7-7" />
+                                  </svg>
+                                </button>
+                                <ul id="theme-options"
+                                    class="absolute z-10 hidden mt-2 w-44 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 shadow-lg">
+                                  <li data-theme="light" class="flex items-center gap-2 px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+                                    <img src="/assets/icons/light.svg" alt="Clair" class="w-4 h-4"> Clair
+                                  </li>
+                                  <li data-theme="dark" class="flex items-center gap-2 px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+                                    <img src="/assets/icons/moon.svg" alt="Sombre" class="w-4 h-4"> Sombre
+                                  </li>
+                                  <li data-theme="system" class="flex items-center gap-2 px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
+                                    <img src="/assets/icons/system.svg" alt="Système" class="w-4 h-4"> Système
+                                  </li>
+                                </ul>
+                              </div>
                           </div>
                       </div>
                     </div>
@@ -185,7 +207,77 @@
     });
   </script>
 
+{{!-- <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const header = document.getElementById("site-header");
+    let lastScrollTime = Date.now();
+    let isHeaderVisible = true;
+    let ticking = false;
+
+    function showHeader() {
+      if (!isHeaderVisible) {
+        header.classList.remove("translate-y-neg-120");
+        isHeaderVisible = true;
+      }
+    }
+
+    function hideHeader() {
+      // Ne cache le header que s’il est en mode compact
+      if (isHeaderVisible && header.classList.contains("w-[30%]")) {
+        header.classList.add("translate-y-neg-120");
+        isHeaderVisible = false;
+      }
+    }
+
+    function adjustHeaderStyle() {
+      const isDesktop = window.innerWidth > 768;
+      const scrollTop = window.scrollY;
+
+      if (isDesktop && scrollTop > 50) {
+        header.classList.add("w-[30%]", "shadow-md", "px-4", "py-1");
+        header.classList.remove("w-full", "px-6", "py-2");
+      } else {
+        header.classList.add("w-full", "px-6", "py-2");
+        header.classList.remove("w-[30%]", "shadow-md", "px-4", "py-1");
+      }
+    }
+
+    function checkInactivity() {
+      const now = Date.now();
+      if (now - lastScrollTime > 1000) {
+        hideHeader();
+      } else {
+        requestAnimationFrame(checkInactivity);
+      }
+    }
+
+    window.addEventListener("scroll", () => {
+      lastScrollTime = Date.now();
+      showHeader();
+      adjustHeaderStyle();
+
+      if (!ticking) {
+        requestAnimationFrame(checkInactivity);
+        ticking = true;
+        setTimeout(() => {
+          ticking = false;
+        }, 1100);
+      }
+    });
+
+    window.addEventListener("resize", adjustHeaderStyle);
+
+    // Initialisation
+    showHeader();
+    adjustHeaderStyle();
+  });
+</script> --}}
+
+
+
+
   {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
   {{ghost_foot}}
+ </div> 
 </body>
 </html>
