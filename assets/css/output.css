@@ -717,10 +717,6 @@ video {
 .max-w-7xl {
   max-width: 80rem;
 }
-.max-w-max {
-  max-width: -moz-max-content;
-  max-width: max-content;
-}
 .max-w-md {
   max-width: 28rem;
 }
@@ -1689,10 +1685,6 @@ html.dark figcaption {
     height: 24rem;
   }
 
-  .sm\:flex-row-reverse {
-    flex-direction: row-reverse;
-  }
-
   .sm\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
@@ -1713,10 +1705,6 @@ html.dark figcaption {
     margin-left: auto;
   }
 
-  .md\:mr-0 {
-    margin-right: 0px;
-  }
-
   .md\:w-1\/2 {
     width: 50%;
   }
@@ -1735,6 +1723,10 @@ html.dark figcaption {
 
   .md\:max-w-md {
     max-width: 28rem;
+  }
+
+  .md\:flex-row-reverse {
+    flex-direction: row-reverse;
   }
 
   .md\:px-16 {
@@ -1773,6 +1765,10 @@ html.dark figcaption {
 
   .lg\:h-\[500px\] {
     height: 500px;
+  }
+
+  .lg\:w-1\/2 {
+    width: 50%;
   }
 
   .lg\:w-1\/3 {

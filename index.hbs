@@ -3,8 +3,8 @@
 {{!-- hero section --}}
 <div class="container mx-auto {{#match @custom.header_style "Hidden"}}hidden{{/match}}">
     <div class="mb-8 p-8 rounded-3xl bg-slate-100 dark:bg-slate-800">
-        <div class="flex flex-wrap {{#if @site.cover_image}}sm:flex-row-reverse lg:items-center{{/if}} -m-8">
-            <div class="w-full {{#if @site.cover_image}}md:w-1/2{{/if}} p-3">
+        <div class="flex flex-wrap {{#if @site.cover_image}}flex-col md:flex-row-reverse lg:items-center{{/if}} -m-8">
+            <div class="w-full {{#if @site.cover_image}}md:w-1/2{{/if}} p-3 mx-auto">
                 <div class="md:max-w-lg mx-auto text-center">
                     {{#if @site.logo}}
                         <div class="w-32 mx-auto mb-4">
@@ -20,26 +20,28 @@
                 </div>
             </div>
             {{#if @site.cover_image}}
-                <div class="w-full md:w-1/2 p-3 flex items-center">
-                    <div class="max-w-max mx-auto md:mr-0 overflow-hidden rounded-3xl">
-                        <img width="100%" height="100%" class="mx-auto"
+                <div class="w-full lg:w-1/2 p-3">
+                    <div class="w-full h-full overflow-hidden rounded-3xl shadow-md">
+                        <img
+                            class="w-full h-full object-cover rounded-3xl"
                             srcset="{{img_url @site.cover_image size="s"}} 300w,
                                     {{img_url @site.cover_image size="m"}} 600w,
                                     {{img_url @site.cover_image size="l"}} 1000w,
                                     {{img_url @site.cover_image size="xl"}} 2000w"
-                            sizes="100vw"
+                            sizes="(min-width: 1024px) 50vw, 100vw"
                             src="{{img_url @site.cover_image size="xl"}}"
                             alt="{{@site.title}}"
                         />
                     </div>
                 </div>
+
             {{/if}}
         </div>
     </div>
 </div>
 
 {{!-- getyourguide link --}}
-<div class="text-center">
+<div class="text-center mb-8">
     <h3 class="text-xl dark:text-white font-semibold mb-2">Découvre les meilleures activités à réserver maintenant :</h3>
     <div data-gyg-widget="auto" data-gyg-partner-id="J1WPH39"></div>
 </div>
