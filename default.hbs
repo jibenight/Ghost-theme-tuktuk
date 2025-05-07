@@ -105,7 +105,7 @@
               </div>
             </div>
           </div>
-          <div class="flex flex-col justify-between h-[80vh]">
+          <div class="flex flex-col justify-between">
             <div class="flex justify-center py-8 w-full">
             {{navigation}}
             </div>
@@ -149,12 +149,10 @@
                               {{/if}}
                             </a> 
                         </div>
-
                         <nav class="m-5">
                             {{navigation type="secondary"}}
                         </nav>
-
-                        <div class="w-auto p-4">
+                        <div class="w-auto p-4 m-5">
                           <div class="flex flex-wrap -m-4">
                             {{!-- Darkmode option --}}
                               <div id="theme-switcher" class="relative inline-block">
@@ -181,10 +179,29 @@
                                 </ul>
                               </div>
                           </div>
-                      </div>
+                        </div>
+                        <!-- Liens Conditions et Mentions avec séparateur • -->
+                        <div class="m-2">
+                          <ul class="flex flex-wrap justify-center items-center text-sm text-slate-600 dark:text-slate-400 space-x-2">
+                            <li>
+                              <a href="/conditions-dutilisation/" class="hover:underline whitespace-nowrap">
+                                Conditions d’utilisation
+                              </a>
+                            </li>
+                            <li class="select-none">•</li>
+                            <li>
+                              <a href="/mentions-legales/" class="hover:underline whitespace-nowrap">
+                                Mentions légales
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+
+                        
                     </div>
                 </div>
             </div>
+        </footer> 
             <div>
               <p class="text-sm text-center mb-12 mt-12">
                 <a class="text-black dark:text-white" href="https://ghost.org/" target="_blank" rel="noopener">
@@ -192,7 +209,7 @@
                 </a>
               </p>
             </div>
-        </footer>
+        
   {{!-- Scripts - handle member signups, responsive videos, infinite scroll, floating headers, and galleries --}}
   <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -345,7 +362,6 @@
   showHeader();
 });
   </script>
-  
   <script src="{{asset "built/js/all.min.js"}}"></script>
   <script>
     $(document).ready(function () {

@@ -666,9 +666,6 @@ video {
 .h-5 {
   height: 1.25rem;
 }
-.h-\[80vh\] {
-  height: 80vh;
-}
 .h-full {
   height: 100%;
 }
@@ -770,6 +767,11 @@ video {
 .cursor-pointer {
   cursor: pointer;
 }
+.select-none {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
 .resize {
   resize: both;
 }
@@ -797,6 +799,14 @@ video {
 .gap-2 {
   gap: 0.5rem;
 }
+.gap-3 {
+  gap: 0.75rem;
+}
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
 .space-x-5 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1.25rem * var(--tw-space-x-reverse));
@@ -807,6 +817,9 @@ video {
 }
 .overflow-y-auto {
   overflow-y: auto;
+}
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 .rounded-3xl {
   border-radius: 1.5rem;
@@ -909,6 +922,10 @@ video {
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
+}
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 .py-16 {
   padding-top: 4rem;
@@ -1582,6 +1599,10 @@ html.dark figcaption {
   --tw-bg-opacity: 1;
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
+.hover\:bg-slate-300:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+}
 .hover\:text-gray-700:hover {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
@@ -1593,6 +1614,9 @@ html.dark figcaption {
 .hover\:text-slate-700:hover {
   --tw-text-opacity: 1;
   color: rgb(51 65 85 / var(--tw-text-opacity));
+}
+.hover\:underline:hover {
+  text-decoration-line: underline;
 }
 .hover\:opacity-75:hover {
   opacity: 0.75;
@@ -1636,6 +1660,10 @@ html.dark figcaption {
   --tw-bg-opacity: 1;
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
+:is(.dark .dark\:bg-slate-700) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
+}
 :is(.dark .dark\:bg-slate-800) {
   --tw-bg-opacity: 1;
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
@@ -1663,9 +1691,17 @@ html.dark figcaption {
   --tw-text-opacity: 1;
   color: rgb(203 213 225 / var(--tw-text-opacity));
 }
+:is(.dark .dark\:text-slate-400) {
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity));
+}
 :is(.dark .dark\:text-white) {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+:is(.dark .dark\:hover\:bg-slate-600:hover) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(71 85 105 / var(--tw-bg-opacity));
 }
 :is(.dark .dark\:hover\:bg-slate-700:hover) {
   --tw-bg-opacity: 1;
