@@ -75,7 +75,14 @@ into the {body} tag of the default.hbs template --}}
         </div>
     </div>
 </article>
-    
+
+{{!-- getyourguide link --}}
+<div class="text-center">
+    <h3 class="text-xl font-semibold mb-2">Découvre les meilleures activités à réserver maintenant :</h3>
+    <div data-gyg-widget="auto" data-gyg-partner-id="J1WPH39"></div>
+</div>
+
+
 {{!-- A signup call to action is displayed here, unless viewed as a logged-in member --}}
 {{#if @site.members_enabled}}
     {{#unless @member}}

@@ -1,7 +1,13 @@
 module.exports = {
   mode: 'jit',
   content: ['./**/*.html', './**/*.hbs'],
-  safelist: ['animate-slide-fade-in', 'animate-slide-fade-out'],
+  safelist: [
+    'animate-slide-fade-in',
+    'animate-slide-fade-out',
+    'backdrop-blur-sm',
+    'transition-all',
+    'duration-300',
+  ],
   darkMode: 'class',
   theme: {
     extend: {

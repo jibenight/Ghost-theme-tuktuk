@@ -24,30 +24,38 @@ document.addEventListener('DOMContentLoaded', () => {
     window.matchMedia('(prefers-color-scheme: dark)').matches
       ? 'dark'
       : 'light';
-  const getSaved = () => localStorage.getItem('theme') || 'system';
+
+  const getSaved = () => {
+    const saved = localStorage.getItem('theme');
+    return THEMES.hasOwnProperty(saved) ? saved : 'system';
+  };
 
   const applyTheme = mode => {
-    const resolved = mode === 'system' ? getSystem() : mode;
+    const validMode = THEMES.hasOwnProperty(mode) ? mode : 'system';
+    const resolved = validMode === 'system' ? getSystem() : validMode;
     html.classList.toggle('dark', resolved === 'dark');
-    icon.src = THEMES[mode].icon;
-    label.textContent = THEMES[mode].name;
+    icon.src = THEMES[validMode].icon;
+    label.textContent = THEMES[validMode].name;
   };
 
   const setTheme = mode => {
     if (mode === 'system') {
       localStorage.removeItem('theme');
-    } else {
+    } else if (THEMES.hasOwnProperty(mode)) {
       localStorage.setItem('theme', mode);
+    } else {
+      console.warn(`Thème invalide ignoré : ${mode}`);
+      return;
     }
     applyTheme(mode);
     options.classList.add('hidden');
     dropdown.setAttribute('aria-expanded', 'false');
   };
 
-  // Init
+  // Initialisation
   applyTheme(getSaved());
 
-  // Toggle dropdown
+  // Ouverture/fermeture du menu
   dropdown.addEventListener('click', () => {
     options.classList.toggle('hidden');
     dropdown.setAttribute(
@@ -56,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   });
 
-  // Click on options
+  // Choix du thème
   options.querySelectorAll('li').forEach(option => {
     option.addEventListener('click', () => {
       const theme = option.getAttribute('data-theme');
@@ -64,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Close on outside click
+  // Fermeture du menu si clic en dehors
   document.addEventListener('click', e => {
     if (!dropdown.contains(e.target) && !options.contains(e.target)) {
       options.classList.add('hidden');

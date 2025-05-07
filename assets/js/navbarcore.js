@@ -15,12 +15,12 @@ document.addEventListener('DOMContentLoaded', function () {
     return window.innerWidth - document.documentElement.clientWidth;
   }
 
-  // --- MENU BURGER ---
+  // --- MENU BURGER ----
   function openMenu() {
     if (menu) {
       scrollPosition = window.scrollY;
 
-      // ✅ Bloque le scroll et garde la position visuellement
+      // Bloque le scroll et garde la position visuellement
       document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollPosition}px`;
       document.body.style.left = '0';
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
           'z-[999]'
         );
 
-        // ✅ Restaure la position scroll sans effet de saut
+        // Restaure la position scroll sans effet de saut
         const scrollY = parseInt(document.body.style.top || '0') * -1;
         document.body.style.position = '';
         document.body.style.top = '';
